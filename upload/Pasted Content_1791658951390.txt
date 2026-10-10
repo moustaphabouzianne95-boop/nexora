@@ -1,0 +1,1744 @@
+# NEXORA — ARENA OPTIMIZED MASTER BUILD PROMPT
+
+## BUILD A COMPLETE, PRODUCTION-READY MULTI-TENANT PROJECT MANAGEMENT SaaS
+
+You are a senior full-stack software engineer, SaaS architect, UI/UX designer, database engineer, DevOps engineer, and application security specialist.
+
+Your task is to **BUILD AND IMPLEMENT NEXORA**, a complete, professional, multi-tenant project management SaaS platform for individuals, startups, agencies, and companies.
+
+**Do not just explain the solution. Do not return only a plan. Do not build a static prototype. Implement the actual working application.**
+
+The application must have a functional frontend, backend, persistent database, secure authentication, authorization, team collaboration, subscription management, billing workflows, analytics, realistic seed data, responsive design, and automated tests.
+
+Use the capabilities and integrations available in ARENA. If a preferred technology is unsupported, choose the closest reliable alternative and document the decision. Never pretend an unavailable integration is working.
+
+---
+
+# 1. PRODUCT VISION
+
+Product name: NEXORA
+
+Product category: Project Management and Team Collaboration SaaS.
+
+Tagline: "Plan smarter. Build together. Deliver better."
+
+Product description:
+
+NEXORA helps individuals and organizations manage projects, coordinate teams, track tasks, organize deadlines, collaborate in real time, analyze productivity, and manage their subscriptions from one unified workspace.
+
+Target users:
+
+- Individual developers and freelancers
+- Small teams and startups
+- Software development teams
+- Digital agencies
+- Growing businesses
+- Enterprise teams
+
+Build NEXORA as a multi-tenant SaaS platform.
+
+Each organization must have its own isolated workspace, members, projects, tasks, files, reports, and billing information.
+
+The product must be designed for future growth without introducing unnecessary complexity into the initial implementation.
+
+## Core principles
+
+- Real functionality, not visual simulations
+- Secure multi-tenant architecture
+- Clear and intuitive user experience
+- Reliable data persistence
+- Maintainable code
+- Strong authorization
+- Responsive layouts
+- Accessible interfaces
+- Scalable database design
+- Professional SaaS quality
+
+---
+
+# 2. IMPLEMENTATION PRIORITIES
+
+Build the application in the following priority order:
+
+1. Application foundation and design system
+2. Database and persistent storage
+3. Authentication and user profiles
+4. Multi-tenant workspaces and permissions
+5. Projects, tasks, and Kanban boards
+6. Team collaboration and notifications
+7. Calendar, timeline, and productivity analytics
+8. Subscription plans and billing
+9. Workspace settings and administration
+10. Seed data and demo accounts
+11. Testing, security hardening, and deployment documentation
+
+Do not stop after completing the landing page or dashboard.
+
+If execution limits require multiple implementation steps, preserve the existing architecture and continue building the remaining features incrementally.
+
+---
+
+# 3. TECHNOLOGY STACK
+
+Use the following stack when supported:
+
+Frontend:
+- Next.js with App Router
+- React
+- TypeScript with strict mode
+- Tailwind CSS
+- shadcn/ui
+- Lucide icons
+- React Hook Form
+- Zod
+- TanStack Query when useful
+
+Backend:
+- Next.js server-side architecture
+- Server Actions or REST API endpoints
+- Dedicated service and business-logic layers
+- Server-side authorization and validation
+
+Database:
+- PostgreSQL
+- Prisma ORM
+
+Authentication:
+- Auth.js or another secure, supported authentication provider
+- Secure session management
+- Password hashing if password-based authentication is implemented
+
+Billing:
+- Stripe Checkout and Stripe Billing, or a supported equivalent
+- Verified server-side webhook processing
+- Test mode during development
+
+File storage:
+- S3-compatible storage or another supported managed object-storage service
+
+Testing:
+- Vitest or Jest for unit and integration tests
+- Playwright for end-to-end tests, if supported
+
+Deployment:
+- Vercel or a suitable hosting platform
+- Managed PostgreSQL
+- Managed file storage
+
+## Architecture rules
+
+- Keep UI components separate from business logic.
+- Use reusable components and services.
+- Validate all external input on the server.
+- Keep secrets exclusively on the server.
+- Use database migrations.
+- Use transactions for operations requiring consistency.
+- Avoid unnecessary dependencies.
+- Do not create a second backend if the platform already provides a suitable backend.
+- Never silently replace persistent storage with localStorage.
+- If ARENA provides a managed database or native authentication, use it where appropriate and document the architecture.
+
+---
+
+# 4. BRAND AND VISUAL IDENTITY
+
+Brand: NEXORA
+
+Create a polished, premium SaaS interface inspired by modern productivity products such as Linear, Notion, Asana, and ClickUp, while maintaining a distinctive visual identity.
+
+Do not copy any product's exact interface.
+
+## Visual direction
+
+- Minimal and professional
+- Excellent typography
+- Clean information hierarchy
+- Generous spacing
+- Compact, useful navigation
+- Consistent cards and tables
+- Subtle borders and shadows
+- Refined micro-interactions
+- Clear status indicators
+- Fast and intuitive workflows
+
+## Color system
+
+Light theme:
+- Background: near-white
+- Surfaces: white
+- Primary text: deep charcoal
+- Secondary text: neutral gray
+- Primary accent: indigo or blue-violet
+- Success: emerald
+- Warning: amber
+- Error: red
+
+Dark theme:
+- Background: deep charcoal/navy
+- Surfaces: elevated dark gray
+- Borders: subtle gray
+- Primary text: near-white
+- Secondary text: muted gray
+- Accent: accessible indigo or blue-violet
+
+Use semantic design tokens. Avoid hardcoding colors throughout components.
+
+## Theme functionality
+
+Implement:
+- Light mode
+- Dark mode
+- System preference
+- Persistent user preference
+- Correct contrast in both themes
+- No theme flicker during initial load
+- Consistent colors across charts, dialogs, dropdowns, and forms
+
+The theme switch must actually work.
+
+---
+
+# 5. APPLICATION LOCALIZATION
+
+Use English as the default language.
+
+Prepare an architecture for future localization, including French and Arabic.
+
+Requirements:
+- Centralized translation dictionaries
+- No scattered hardcoded interface strings where avoidable
+- Locale-aware dates and numbers
+- Currency formatting based on the workspace billing currency
+- RTL support when Arabic is enabled
+
+Use a consistent date and time strategy. Store timestamps in UTC and display them in the appropriate user or workspace timezone.
+
+---
+
+# 6. PUBLIC WEBSITE
+
+Create these public pages:
+
+- /
+- /features
+- /pricing
+- /about
+- /contact
+- /login
+- /register
+- /forgot-password
+- /reset-password
+- /terms
+- /privacy
+
+## Landing page
+
+Create a polished, conversion-focused landing page.
+
+### Navbar
+
+- NEXORA logo
+- Features
+- Solutions
+- Pricing
+- Resources
+- Sign in
+- Get started
+
+### Hero
+
+Headline:
+
+"Turn ambitious plans into exceptional results."
+
+Supporting text:
+
+"Plan projects, organize your team, track progress, and deliver better work with one powerful workspace."
+
+Primary CTA: "Start for free"
+
+Secondary CTA: "Explore the platform"
+
+Include a high-quality product preview showing a real application screen.
+
+Do not create misleading customer logos or fabricated testimonials presented as genuine.
+
+### Additional sections
+
+1. Hero
+2. Product preview
+3. Trusted workflows
+4. Core features
+5. Project management overview
+6. Team collaboration
+7. Analytics and reporting
+8. Subscription plans
+9. FAQ
+10. Final CTA
+11. Footer
+
+All CTA buttons must navigate to a valid page or perform their intended action.
+
+---
+
+# 7. AUTHENTICATION
+
+Implement functional authentication:
+
+- Register
+- Login
+- Logout
+- Forgot password
+- Password reset
+- Email verification where supported
+- Session management
+- Protected routes
+- Account settings
+- Profile management
+
+Support Google or other OAuth providers only when correctly configured.
+
+Do not simulate successful OAuth when credentials are unavailable.
+
+User profile fields:
+
+- ID
+- Name
+- Email
+- Avatar
+- Timezone
+- Locale
+- Theme preference
+- Account status
+- Created date
+- Updated date
+
+Account statuses:
+
+- ACTIVE
+- SUSPENDED
+- DEACTIVATED
+
+Use secure session cookies, appropriate password hashing, rate limiting, and safe error messages.
+
+Never store plaintext passwords.
+
+---
+
+# 8. MULTI-TENANT WORKSPACES
+
+This is one of the most important parts of the application.
+
+A user can create or join multiple workspaces and switch between them.
+
+Examples:
+
+- Personal workspace
+- Startup workspace
+- Agency workspace
+- Client project workspace
+
+Each workspace has its own:
+
+- Name
+- Slug
+- Logo
+- Description
+- Members
+- Projects
+- Tasks
+- Labels
+- Files
+- Reports
+- Activity history
+- Settings
+- Subscription
+- Billing records
+
+## Workspace creation
+
+Collect:
+
+- Workspace name
+- Workspace URL/slug
+- Workspace type
+- Team size
+- Intended use
+
+After creation, show a guided onboarding experience.
+
+## Workspace switcher
+
+Place a workspace switcher in the sidebar header.
+
+Users must be able to:
+- View their workspaces
+- Switch workspaces
+- Create a workspace
+- Manage workspace settings if authorized
+
+Switching workspaces must reload the correct workspace-scoped data.
+
+Never leak data across workspaces.
+
+## Tenant isolation
+
+Every tenant-owned record must be associated with the appropriate workspace directly or through a validated parent relationship.
+
+Enforce workspace access in the server-side data-access layer.
+
+Never trust workspace IDs supplied by the browser without checking membership and permissions.
+
+Where supported, use PostgreSQL Row-Level Security as an additional protection layer, not as a substitute for correct server authorization.
+
+Create automated tests verifying that a user in Workspace A cannot read or modify records belonging to Workspace B.
+
+---
+
+# 9. ROLES AND PERMISSIONS
+
+Implement these roles:
+
+## OWNER
+
+- Full workspace control
+- Manage members and roles
+- Manage workspace settings
+- Manage subscription and billing
+- Create, edit, archive, and delete projects
+- Manage all workspace resources
+
+## ADMIN
+
+- Manage members where permitted
+- Manage projects and tasks
+- Configure workspace settings
+- Access workspace analytics
+- Cannot transfer ownership or perform restricted billing operations unless explicitly authorized
+
+## PROJECT_MANAGER
+
+- Create and manage projects
+- Manage project members
+- Assign tasks
+- Manage milestones
+- View project analytics
+- Cannot change workspace ownership
+
+## MEMBER
+
+- View authorized projects
+- Create and update tasks according to project permissions
+- Comment on tasks
+- Upload permitted files
+- Participate in collaboration
+
+## VIEWER
+
+- Read-only access to authorized workspace content
+- Cannot create or modify projects, tasks, comments, or settings
+
+Build permission checks on the server.
+
+Hiding buttons in the frontend is not authorization.
+
+Prevent privilege escalation, including unauthorized self-promotion to OWNER or ADMIN.
+
+---
+
+# 10. INVITATIONS AND TEAM MANAGEMENT
+
+Implement member invitations.
+
+Features:
+- Invite by email
+- Assign a role
+- Generate a secure invitation token
+- Set invitation expiration
+- Accept invitation
+- Revoke pending invitation
+- Resend invitation
+- Remove a member
+- Change member role
+- View invitation status
+
+Invitation statuses:
+
+- PENDING
+- ACCEPTED
+- EXPIRED
+- REVOKED
+
+Invitation tokens must be securely generated and stored safely.
+
+Acceptance must verify the recipient identity and token expiration.
+
+If email delivery is not configured, provide a development-only invitation flow and document the limitation. Do not claim an email was sent when it was not.
+
+---
+
+# 11. MAIN APPLICATION LAYOUT
+
+Create an authenticated application shell.
+
+## Desktop layout
+
+Left sidebar:
+- Workspace switcher
+- Overview
+- Inbox
+- My Tasks
+- Projects
+- Calendar
+- Team
+- Reports
+- Settings
+
+Bottom sidebar:
+- Help
+- Theme switch
+- User profile
+
+Top header:
+- Breadcrumbs
+- Search
+- Create button
+- Notifications
+- Profile menu
+
+Main content:
+- Page title
+- Contextual actions
+- Dashboard cards
+- Tables, boards, calendars, and charts
+
+## Mobile layout
+
+- Collapsible sidebar or drawer
+- Compact top navigation
+- Responsive project boards
+- Mobile-friendly task editor
+- Touch-friendly controls
+- No horizontal overflow
+- Adaptive tables and charts
+
+Maintain a consistent application shell across authenticated pages.
+
+---
+
+# 12. DASHBOARD
+
+Create a data-driven overview dashboard.
+
+Display:
+
+- Total active projects
+- Open tasks
+- Completed tasks
+- Overdue tasks
+- Tasks assigned to the current user
+- Tasks completed this week
+- Upcoming deadlines
+- Team workload
+- Recent activity
+- Project progress
+- Personal productivity
+
+Charts:
+- Tasks completed over time
+- Project progress
+- Tasks by status
+- Tasks by priority
+- Workload by member
+
+Add date-range filters.
+
+Dashboard statistics must be calculated from actual authorized database records.
+
+Never hardcode metrics as if they were live data.
+
+Provide loading, empty, and error states.
+
+---
+
+# 13. PROJECT MANAGEMENT
+
+Implement complete project CRUD.
+
+Project fields:
+
+- ID
+- Workspace ID
+- Name
+- Slug
+- Description
+- Color
+- Icon
+- Owner
+- Status
+- Priority
+- Start date
+- Due date
+- Visibility
+- Archived timestamp
+- Created timestamp
+- Updated timestamp
+
+Project statuses:
+
+- PLANNING
+- ACTIVE
+- ON_HOLD
+- COMPLETED
+- ARCHIVED
+
+Project priorities:
+
+- LOW
+- MEDIUM
+- HIGH
+- URGENT
+
+Features:
+- Create project
+- View project
+- Edit project
+- Archive project
+- Restore project
+- Delete project with confirmation
+- Assign project members
+- Set project deadlines
+- Track progress
+- View project activity
+- Filter and sort projects
+- Search projects
+- Paginate project lists
+
+Calculate progress from task completion or an explicitly defined milestone-based system.
+
+Do not mix different progress calculations inconsistently.
+
+Deleting a project must follow explicit database deletion rules and prevent accidental loss of important data.
+
+---
+
+# 14. TASK MANAGEMENT
+
+Implement full task CRUD.
+
+Task fields:
+
+- ID
+- Workspace ID
+- Project ID
+- Title
+- Description
+- Status
+- Priority
+- Assignee
+- Creator
+- Start date
+- Due date
+- Estimated effort
+- Actual effort, if supported
+- Position/order
+- Parent task, optional
+- Created timestamp
+- Updated timestamp
+- Completed timestamp
+
+Task statuses:
+
+- BACKLOG
+- TODO
+- IN_PROGRESS
+- IN_REVIEW
+- DONE
+- CANCELLED
+
+Task priorities:
+
+- LOW
+- MEDIUM
+- HIGH
+- URGENT
+
+Features:
+- Create tasks
+- Edit tasks
+- Delete tasks
+- Assign members
+- Set deadlines
+- Change status
+- Change priority
+- Add labels
+- Add descriptions
+- Add subtasks
+- Set task dependencies
+- Attach files
+- Add comments
+- View activity history
+- Filter and sort tasks
+- Bulk-update eligible tasks
+- Search tasks
+
+Validate that assignees are authorized members of the relevant workspace and project.
+
+Prevent invalid task and project relationships.
+
+---
+
+# 15. KANBAN BOARD
+
+Create a polished, interactive Kanban board for every project.
+
+Columns:
+- Backlog
+- To Do
+- In Progress
+- In Review
+- Done
+
+Task cards display:
+- Title
+- Priority
+- Assignee avatar
+- Due date
+- Labels
+- Comment count
+- Attachment count
+
+Features:
+- Drag and drop
+- Reorder tasks
+- Move tasks between columns
+- Create a task in a column
+- Open task details
+- Filter by assignee
+- Filter by priority
+- Filter by label
+- Search tasks
+
+Persist every successful drag-and-drop change to the database.
+
+Implement optimistic updates with rollback on failure.
+
+Use concurrency-safe ordering where appropriate.
+
+Provide keyboard-accessible alternatives to drag-and-drop.
+
+---
+
+# 16. PROJECT VIEWS
+
+Support multiple views:
+
+## List view
+
+- Task table
+- Sorting
+- Filtering
+- Grouping
+- Inline editing where safe
+
+## Board view
+
+- Interactive Kanban columns
+- Drag-and-drop task cards
+
+## Calendar view
+
+- Tasks and milestones by date
+- Monthly and weekly views
+- Deadline indicators
+- Navigation between periods
+
+## Timeline view
+
+- Projects and tasks represented by their scheduled dates
+- Start and due dates
+- Milestones
+- Basic dependency visualization
+
+If full Gantt functionality is too complex for the platform, implement a functional timeline view and clearly document the limitation rather than presenting a nonfunctional chart.
+
+Remember the user's selected view where appropriate.
+
+---
+
+# 17. TASK DETAILS
+
+Create a task detail panel or page.
+
+Include:
+
+- Title
+- Description
+- Status
+- Priority
+- Assignee
+- Due date
+- Labels
+- Subtasks
+- Dependencies
+- Attachments
+- Comments
+- Activity history
+
+Allow users to edit permitted fields without navigating away from the board.
+
+Track meaningful changes in the activity log.
+
+Avoid creating activity entries for unchanged values.
+
+---
+
+# 18. COMMENTS AND COLLABORATION
+
+Implement persistent comments.
+
+Features:
+- Create comment
+- Edit own comment
+- Delete own comment where permitted
+- Reply threads, if supported
+- Mention workspace members
+- Show timestamps
+- Track comment activity
+
+Validate all comment ownership and permissions.
+
+Sanitize rendered rich text and prevent stored XSS.
+
+For mentions, create appropriate notifications without exposing private data.
+
+---
+
+# 19. FILE ATTACHMENTS
+
+Support attachments for tasks and comments where appropriate.
+
+Requirements:
+- File selection
+- Upload progress
+- Download
+- Delete where authorized
+- File metadata
+- Size limits
+- Allowed file types
+- Secure access checks
+
+Store files in managed object storage rather than relying on temporary server disk.
+
+Do not expose private file URLs without appropriate access controls.
+
+Validate uploads on the server.
+
+---
+
+# 20. NOTIFICATIONS AND INBOX
+
+Implement an in-app notification center.
+
+Notification events:
+- Task assigned
+- Task mentioned
+- Task due soon
+- Task overdue
+- Comment received
+- Project invitation
+- Workspace invitation
+- Project membership changed
+- Project deadline approaching
+- Subscription or billing event, where appropriate
+
+Features:
+- Unread counter
+- Notification list
+- Mark as read
+- Mark all as read
+- Navigate to the relevant resource
+- Notification preferences
+
+Create a reliable inbox for items requiring the user's attention.
+
+Use optimistic updates only where rollback can be implemented safely.
+
+If real-time delivery is supported, use a reliable real-time mechanism. Otherwise use refresh/polling and document the behavior accurately.
+
+---
+
+# 21. SEARCH
+
+Implement global search scoped to the active workspace.
+
+Search across:
+- Projects
+- Tasks
+- Members, subject to permissions
+- Labels
+
+Features:
+- Debounced search
+- Recent searches, if appropriate
+- Keyboard navigation
+- Relevant result previews
+- Direct navigation to results
+
+Enforce authorization before returning search results.
+
+Do not reveal inaccessible records through result titles, counts, or snippets.
+
+---
+
+# 22. LABELS, MILESTONES, AND DEPENDENCIES
+
+## Labels
+
+Workspace-scoped labels:
+- Name
+- Color
+- Description
+
+Support adding/removing labels on tasks and filtering by labels.
+
+## Milestones
+
+Project milestones:
+- Name
+- Description
+- Due date
+- Status
+- Linked tasks
+
+Show milestones in relevant project views.
+
+## Task dependencies
+
+Support basic relationships:
+- Task A blocks Task B
+- Task B depends on Task A
+
+Prevent circular dependencies.
+
+Display dependency status and warn when a task is blocked.
+
+Do not prevent all task updates merely because dependencies exist; enforce explicit business rules.
+
+---
+
+# 23. CALENDAR AND DEADLINES
+
+Create a useful calendar experience.
+
+Include:
+- Task due dates
+- Project deadlines
+- Milestones
+- Assigned-user filtering
+- Status filtering
+- Navigation by month/week
+- Quick access to task details
+
+Provide clear indicators for overdue and upcoming tasks.
+
+Date changes must persist to the database.
+
+Handle timezones and date-only values consistently.
+
+---
+
+# 24. TEAM MANAGEMENT
+
+Create a team directory.
+
+Display:
+- Avatar
+- Name
+- Email where permitted
+- Role
+- Assigned tasks
+- Completed tasks
+- Current workload
+- Workspace join date
+
+Features:
+- Invite member
+- Change role
+- Remove member
+- View member activity where authorized
+- Filter team members
+- View workload
+
+Protect personal information.
+
+Do not expose emails or private member details to unauthorized users.
+
+---
+
+# 25. ADVANCED ANALYTICS
+
+Create an analytics module backed by real database data.
+
+## Workspace analytics
+
+- Project completion rate
+- Tasks created over time
+- Tasks completed over time
+- Overdue task rate
+- Average task completion time
+- Tasks by status
+- Tasks by priority
+- Project progress
+- Workload by member
+- On-time completion rate
+- Project deadline performance
+
+## Project analytics
+
+- Total tasks
+- Completed tasks
+- Remaining tasks
+- Overdue tasks
+- Completion trend
+- Workload distribution
+- Status distribution
+- Milestone progress
+
+## Member analytics
+
+- Assigned tasks
+- Completed tasks
+- Overdue assigned tasks
+- Workload
+- Completion trend
+
+Analytics should measure work activity, not claim to measure employee quality or productivity conclusively.
+
+Exclude unauthorized data.
+
+Use sensible date ranges and define calculations consistently.
+
+Support:
+- Last 7 days
+- Last 30 days
+- Last 90 days
+- Custom date range
+
+Use accessible charts with readable legends and tooltips.
+
+Avoid unnecessary database queries.
+
+Cache analytics carefully and invalidate or refresh cached data when relevant records change.
+
+---
+
+# 26. SUBSCRIPTIONS AND BILLING
+
+Implement subscription-ready SaaS billing.
+
+Use Stripe or an equivalent supported provider.
+
+If billing credentials are unavailable, implement the integration structure and test-mode configuration, and clearly document what must be configured. Do not simulate successful real payments.
+
+## Plans
+
+### FREE
+
+- 1 workspace
+- Up to 3 active members
+- Up to 3 active projects
+- Basic task management
+- List and Kanban views
+- Basic notifications
+- Basic analytics
+
+### PRO
+
+Suggested price: $10 per member/month.
+
+- More projects
+- Expanded team limits
+- Calendar and timeline views
+- Advanced analytics
+- File attachments
+- Task dependencies
+- Custom labels
+- Priority support
+
+### BUSINESS
+
+Suggested price: $20 per member/month.
+
+- Everything in PRO
+- Advanced workspace controls
+- Expanded reporting
+- Custom roles/permissions where supported
+- Audit history
+- Enhanced team administration
+- Higher configurable limits
+
+These are illustrative initial prices. Make them configurable through application settings or billing configuration.
+
+Do not hardcode prices in multiple unrelated components.
+
+Support monthly and annual billing where the provider is configured.
+
+## Billing pages
+
+Create:
+- /settings/billing
+- /settings/billing/plans
+- /settings/billing/invoices
+
+Features:
+- Current plan
+- Subscription status
+- Plan comparison
+- Upgrade
+- Downgrade
+- Cancel subscription
+- Reactivate where supported
+- Billing interval
+- Invoice history
+- Payment status
+- Customer portal
+
+Use hosted checkout for payment collection.
+
+Do not store card numbers or sensitive payment credentials.
+
+## Billing rules
+
+- Associate subscriptions with the correct workspace.
+- Restrict billing administration to authorized roles.
+- Validate subscription state on the server.
+- Process provider webhooks securely.
+- Verify webhook signatures.
+- Make webhook processing idempotent.
+- Handle duplicate and out-of-order events safely.
+- Do not grant paid entitlements based solely on client-side success redirects.
+- Keep subscription and entitlement logic centralized.
+- Record billing events for troubleshooting.
+
+Subscription states should include appropriate equivalents of:
+- TRIALING
+- ACTIVE
+- PAST_DUE
+- CANCELLED
+- INCOMPLETE
+
+Use the payment provider's actual status model where appropriate.
+
+## Entitlement enforcement
+
+Implement a central plan-entitlement service.
+
+Before creating resources that have plan limits, check the workspace's effective entitlements on the server.
+
+If a limit is reached:
+- Explain the limitation clearly.
+- Preserve existing data.
+- Offer an upgrade path.
+- Do not silently delete records.
+
+Define how downgrades affect existing resources. Prefer read-only access to excess resources or a clear remediation workflow instead of destructive data loss.
+
+---
+
+# 27. DATABASE DESIGN
+
+Use PostgreSQL with Prisma or the best supported equivalent.
+
+Create normalized models and migrations for at least:
+
+- User
+- Account, if required by the authentication provider
+- Session, if required
+- Workspace
+- WorkspaceMember
+- WorkspaceInvitation
+- Project
+- ProjectMember
+- Task
+- TaskLabel
+- Label
+- TaskDependency
+- Milestone
+- Comment
+- Attachment
+- Notification
+- NotificationPreference
+- ActivityLog
+- Subscription
+- BillingEvent
+- InvoiceRecord, if needed
+- AuditLog, where appropriate
+
+Add further models only where required by actual features.
+
+## Important relationships
+
+- A user can belong to many workspaces.
+- A workspace has many members.
+- A workspace has many projects.
+- A project belongs to one workspace.
+- A task belongs to one project and workspace.
+- A task can have an assignee who must be an authorized workspace member.
+- A project can have multiple members.
+- Tasks can have comments, labels, dependencies, attachments, and activity events.
+- A workspace has its own subscription and billing configuration.
+- Notifications belong to the intended recipient and relevant workspace where appropriate.
+
+## Database quality
+
+- Use UUIDs or secure equivalent identifiers.
+- Use foreign keys.
+- Use appropriate unique constraints.
+- Add indexes for common queries.
+- Use createdAt and updatedAt consistently.
+- Use transactions for critical operations.
+- Define deletion and archival behavior explicitly.
+- Prevent orphaned records.
+- Avoid storing duplicate calculated values unless required for performance.
+- Use Decimal or integer minor units for monetary values, not floating-point arithmetic.
+
+Important indexes should cover commonly queried fields, including:
+- workspaceId
+- userId
+- projectId
+- assigneeId
+- status
+- priority
+- dueDate
+- createdAt
+- subscription provider IDs
+
+Ensure unique constraints are appropriate for tenant-scoped values.
+
+For example, workspace slugs must be unique according to the chosen routing model.
+
+---
+
+# 28. API AND BUSINESS LOGIC
+
+Use consistent, typed API responses.
+
+Organize endpoints or server actions by domain:
+
+- Authentication
+- Workspaces
+- Members
+- Invitations
+- Projects
+- Tasks
+- Comments
+- Attachments
+- Labels
+- Milestones
+- Dependencies
+- Notifications
+- Analytics
+- Subscriptions
+- Billing
+- Settings
+
+Use standard HTTP status codes when using REST APIs.
+
+Validate request bodies and query parameters.
+
+Handle:
+- Unauthorized requests
+- Forbidden operations
+- Missing records
+- Invalid input
+- Conflicts
+- Rate limits
+- Unexpected failures
+
+Return user-safe errors without exposing internal stack traces.
+
+Never trust user IDs, role values, workspace IDs, billing statuses, or calculated prices sent by the browser.
+
+Load trusted identity from the authenticated server session.
+
+---
+
+# 29. SECURITY REQUIREMENTS
+
+Security is mandatory.
+
+Implement:
+
+- Server-side authorization
+- Multi-tenant data isolation
+- Secure authentication
+- Secure session management
+- Password hashing when applicable
+- Input validation
+- Output escaping
+- XSS protection
+- CSRF protection where applicable
+- Rate limiting
+- Secure file upload validation
+- Secure HTTP headers
+- Safe redirects
+- SQL injection protection through parameterized ORM queries
+- Environment variable management
+- Secrets isolation
+- Webhook signature verification
+- Audit logging for sensitive actions
+
+Sensitive actions include:
+- Role changes
+- Member removal
+- Workspace ownership transfer
+- Billing changes
+- Subscription changes
+- Destructive project operations
+
+Do not log passwords, session tokens, reset tokens, full payment data, or secrets.
+
+Do not rely on frontend checks for permissions.
+
+Write tests specifically designed to detect cross-workspace data leaks.
+
+---
+
+# 30. EMPTY, LOADING, AND ERROR STATES
+
+Every major page must implement all relevant states.
+
+## Empty states
+
+Examples:
+
+"No projects yet. Create your first project to get started."
+
+"No tasks assigned to you."
+
+"Your inbox is clear."
+
+"Invite your team to start collaborating."
+
+Each empty state should have a relevant CTA.
+
+## Loading states
+
+Implement:
+- Dashboard skeleton
+- Project card skeleton
+- Task list skeleton
+- Kanban skeleton
+- Table skeleton
+- Analytics skeleton
+- Billing loading state
+
+Avoid unnecessary full-page loading indicators.
+
+## Error states
+
+Show helpful messages with retry actions when appropriate.
+
+Never leave a broken blank page.
+
+## Optimistic updates
+
+Use optimistic updates for suitable interactions:
+- Task status changes
+- Kanban reordering
+- Favorite-like preferences, if implemented
+- Notification read state
+- Simple task field edits
+
+Rollback changes if the server rejects the operation.
+
+For billing, permissions, role changes, and other sensitive operations, use server-confirmed results.
+
+---
+
+# 31. PERFORMANCE AND RELIABILITY
+
+Implement:
+
+- Server-side pagination
+- Indexed database queries
+- Efficient filtering and sorting
+- Image optimization
+- Lazy loading
+- Avoidance of N+1 queries
+- Appropriate caching
+- Cache invalidation
+- Debounced search
+- Efficient analytics queries
+- Transaction-safe business logic
+
+Do not load an entire workspace's task history into the browser.
+
+Do not expose unlimited query endpoints.
+
+Use sensible defaults and configurable limits.
+
+---
+
+# 32. ACCESSIBILITY
+
+Follow WCAG-aligned accessibility practices.
+
+Implement:
+- Semantic HTML
+- Keyboard navigation
+- Visible focus states
+- Accessible forms
+- Proper labels
+- Screen-reader support
+- Sufficient contrast
+- Accessible dialogs
+- Accessible charts
+- Reduced-motion support
+- Keyboard alternatives for drag-and-drop
+
+The application must remain usable without relying exclusively on color or mouse interaction.
+
+---
+
+# 33. DEMO AND SEED DATA
+
+Seed the database with realistic, internally consistent development data.
+
+Create:
+- 1 platform demonstration administrator, if platform administration is implemented
+- 3 workspaces
+- 12 users
+- Workspace memberships with different roles
+- At least 8 projects
+- At least 100 tasks
+- Labels
+- Comments
+- Milestones
+- Task dependencies
+- Notifications
+- Activity history
+- Example subscription states
+
+Include realistic workspaces such as:
+
+1. NEXORA Product Team
+2. Digital Agency
+3. Startup Operations
+
+Example projects:
+- Website Redesign
+- Mobile App Development
+- Marketing Launch
+- API Infrastructure
+- Customer Portal
+- Product Roadmap
+- Analytics Dashboard
+- Documentation Refresh
+
+Use realistic task titles, deadlines, priorities, statuses, assignments, and descriptions.
+
+Use a mixture of:
+- Completed tasks
+- In-progress tasks
+- Upcoming tasks
+- Overdue tasks
+- Unassigned tasks
+
+Ensure relationships are valid.
+
+Analytics must reflect the seeded records.
+
+Do not create impossible states merely to populate the interface.
+
+## Demo accounts
+
+Create documented development accounts for:
+- Workspace owner
+- Workspace administrator
+- Project manager
+- Member
+- Viewer
+
+Use development-only credentials or a supported demo login mechanism.
+
+If password-based demo accounts are seeded, ensure passwords are hashed using the application's real authentication implementation.
+
+Never reuse demo passwords in production.
+
+Never ship an openly accessible administrator backdoor.
+
+If a public demo environment is provided, isolate it from real customer data and disable destructive or billing operations as appropriate.
+
+---
+
+# 34. WORKSPACE SETTINGS
+
+Create functional settings pages.
+
+Workspace settings:
+- Name
+- Logo
+- Description
+- Slug
+- Timezone
+- Default project settings
+- Member management
+- Notification defaults
+- Workspace archive
+- Ownership transfer, if supported
+
+Personal settings:
+- Name
+- Avatar
+- Email
+- Password or authentication methods
+- Locale
+- Timezone
+- Theme
+- Notification preferences
+
+Billing settings:
+- Current plan
+- Usage
+- Payment provider portal
+- Invoice history
+- Subscription management
+
+Enforce appropriate roles for every setting.
+
+---
+
+# 35. AUDIT AND ACTIVITY LOGS
+
+Create activity logs for meaningful events.
+
+Examples:
+- Project created
+- Project archived
+- Task created
+- Task assigned
+- Task status changed
+- Due date changed
+- Member invited
+- Member role changed
+- Subscription updated
+
+Record:
+- Actor
+- Workspace
+- Resource type
+- Resource ID
+- Action
+- Timestamp
+- Safe change metadata where appropriate
+
+Avoid storing unnecessary sensitive information.
+
+Do not allow ordinary users to modify audit history.
+
+Use pagination for activity feeds.
+
+---
+
+# 36. TESTING REQUIREMENTS
+
+Create automated tests for the most important application behavior.
+
+## Unit tests
+
+Test:
+- Permission evaluation
+- Subscription entitlements
+- Project progress calculations
+- Task status transitions
+- Date and deadline calculations
+- Analytics calculations
+- Billing event handling
+
+## Integration tests
+
+Test:
+- Registration and login
+- Workspace creation
+- Workspace invitations
+- Project CRUD
+- Task CRUD
+- Task assignment
+- Comments
+- Notifications
+- Subscription state updates
+- Authorization checks
+
+## Multi-tenant security tests
+
+Explicitly verify:
+- User A cannot read Workspace B projects.
+- User A cannot modify Workspace B tasks.
+- User A cannot download unauthorized attachments.
+- A member cannot promote themselves to OWNER.
+- A viewer cannot edit tasks.
+- A workspace member cannot access another workspace's billing data.
+- Search does not expose inaccessible records.
+- Workspace switching does not retain stale data from the previous workspace.
+
+## End-to-end tests
+
+Use Playwright or an equivalent supported tool.
+
+Test the following workflow:
+
+1. Register or sign in.
+2. Create a workspace.
+3. Create a project.
+4. Invite a teammate.
+5. Create a task.
+6. Assign the task.
+7. Move the task across Kanban columns.
+8. Add a comment.
+9. Complete the task.
+10. Confirm dashboard metrics update.
+11. Switch workspace.
+12. Confirm workspace data isolation.
+13. Open billing settings.
+14. Verify the current plan and available upgrade actions.
+
+Test billing with provider test mode and webhook fixtures. Never run real charges as part of automated tests.
+
+All critical tests must pass before declaring the implementation complete.
+
+---
+
+# 37. DEPLOYMENT AND ENVIRONMENT
+
+Create:
+- .env.example
+- Database migration instructions
+- Seed instructions
+- Development instructions
+- Build instructions
+- Test instructions
+- Production deployment instructions
+
+Document all required environment variables, including relevant equivalents of:
+
+DATABASE_URL
+AUTH_SECRET
+APP_URL
+FILE_STORAGE credentials
+BILLING_SECRET_KEY
+BILLING_WEBHOOK_SECRET
+EMAIL provider credentials, if used
+
+Use placeholders only.
+
+Never commit actual secrets.
+
+Implement a clear development, test, and production configuration strategy.
+
+Do not run destructive seed scripts against production databases.
+
+Add basic health checks and appropriate error monitoring hooks where supported.
+
+---
+
+# 38. README AND DEVELOPER EXPERIENCE
+
+Create a professional README containing:
+
+1. Project overview
+2. Main features
+3. Technology stack
+4. Architecture overview
+5. Database model overview
+6. Local setup
+7. Environment variables
+8. Database migrations
+9. Seed data
+10. Demo accounts
+11. Running the application
+12. Running tests
+13. Billing test mode
+14. Deployment
+15. Security considerations
+16. Known limitations
+17. Future roadmap
+
+The project must be understandable to another developer without requiring access to this conversation.
+
+---
+
+# 39. DEFINITION OF DONE
+
+The application is not complete until the following conditions are met.
+
+## Frontend
+
+- Public landing page works.
+- Authentication pages work.
+- Dashboard uses real data.
+- Projects and tasks have complete CRUD flows.
+- Kanban drag-and-drop persists.
+- Workspace switcher works.
+- Team management works.
+- Calendar and analytics work.
+- Billing pages reflect actual application state.
+- Light and dark modes work.
+- Mobile layouts work.
+- Loading, empty, and error states are present.
+
+## Backend
+
+- Database migrations succeed.
+- Authentication is secure.
+- Workspace authorization is enforced.
+- Project/task operations persist.
+- Invitations and membership permissions work.
+- Comments and notifications persist.
+- Analytics use actual data.
+- Subscription entitlements are enforced server-side.
+- Billing webhooks are verified and idempotent.
+- Errors are handled consistently.
+
+## Quality
+
+- Seed data is valid.
+- No critical workflow depends on fake data.
+- No important button is nonfunctional.
+- No secret is exposed to the client.
+- No known cross-tenant authorization issue remains.
+- Critical tests pass.
+- README and deployment instructions are provided.
+
+---
+
+# 40. FINAL EXECUTION INSTRUCTIONS
+
+Build NEXORA now.
+
+Do not return only an implementation plan.
+
+Do not stop after generating the landing page.
+
+Do not create a frontend-only prototype.
+
+Do not use fake APIs or pretend payments succeeded.
+
+Do not claim that tests, integrations, database migrations, or deployments succeeded unless they were actually executed and verified.
+
+Start by inspecting the platform's supported capabilities and selecting a consistent architecture.
+
+Then implement the application incrementally, verifying each major feature before proceeding.
+
+If a platform limitation prevents a feature from being fully implemented:
+1. Complete the working alternative.
+2. Preserve the correct architectural boundaries.
+3. Document the limitation.
+4. Explain exactly what configuration or integration is still required.
+
+Prioritize a functional, secure core product over superficial feature quantity.
+
+**The final deliverable must be a real, responsive, multi-tenant SaaS application with persistent storage, secure authentication, enforced permissions, projects, tasks, team collaboration, analytics, subscription and billing workflows, seed data, automated tests, and setup documentation.**
+
+Build NEXORA as a professional product that a software engineer can confidently demonstrate in a portfolio and continue developing toward commercial release.

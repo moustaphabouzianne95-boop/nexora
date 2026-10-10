@@ -1,0 +1,1744 @@
+     1→     1→# NEXORA — ARENA OPTIMIZED MASTER BUILD PROMPT
+     2→     2→
+     3→     3→## BUILD A COMPLETE, PRODUCTION-READY MULTI-TENANT PROJECT MANAGEMENT SaaS
+     4→     4→
+     5→     5→You are a senior full-stack software engineer, SaaS architect, UI/UX designer, database engineer, DevOps engineer, and application security specialist.
+     6→     6→
+     7→     7→Your task is to **BUILD AND IMPLEMENT NEXORA**, a complete, professional, multi-tenant project management SaaS platform for individuals, startups, agencies, and companies.
+     8→     8→
+     9→     9→**Do not just explain the solution. Do not return only a plan. Do not build a static prototype. Implement the actual working application.**
+    10→    10→
+    11→    11→The application must have a functional frontend, backend, persistent database, secure authentication, authorization, team collaboration, subscription management, billing workflows, analytics, realistic seed data, responsive design, and automated tests.
+    12→    12→
+    13→    13→Use the capabilities and integrations available in ARENA. If a preferred technology is unsupported, choose the closest reliable alternative and document the decision. Never pretend an unavailable integration is working.
+    14→    14→
+    15→    15→---
+    16→    16→
+    17→    17→# 1. PRODUCT VISION
+    18→    18→
+    19→    19→Product name: NEXORA
+    20→    20→
+    21→    21→Product category: Project Management and Team Collaboration SaaS.
+    22→    22→
+    23→    23→Tagline: "Plan smarter. Build together. Deliver better."
+    24→    24→
+    25→    25→Product description:
+    26→    26→
+    27→    27→NEXORA helps individuals and organizations manage projects, coordinate teams, track tasks, organize deadlines, collaborate in real time, analyze productivity, and manage their subscriptions from one unified workspace.
+    28→    28→
+    29→    29→Target users:
+    30→    30→
+    31→    31→- Individual developers and freelancers
+    32→    32→- Small teams and startups
+    33→    33→- Software development teams
+    34→    34→- Digital agencies
+    35→    35→- Growing businesses
+    36→    36→- Enterprise teams
+    37→    37→
+    38→    38→Build NEXORA as a multi-tenant SaaS platform.
+    39→    39→
+    40→    40→Each organization must have its own isolated workspace, members, projects, tasks, files, reports, and billing information.
+    41→    41→
+    42→    42→The product must be designed for future growth without introducing unnecessary complexity into the initial implementation.
+    43→    43→
+    44→    44→## Core principles
+    45→    45→
+    46→    46→- Real functionality, not visual simulations
+    47→    47→- Secure multi-tenant architecture
+    48→    48→- Clear and intuitive user experience
+    49→    49→- Reliable data persistence
+    50→    50→- Maintainable code
+    51→    51→- Strong authorization
+    52→    52→- Responsive layouts
+    53→    53→- Accessible interfaces
+    54→    54→- Scalable database design
+    55→    55→- Professional SaaS quality
+    56→    56→
+    57→    57→---
+    58→    58→
+    59→    59→# 2. IMPLEMENTATION PRIORITIES
+    60→    60→
+    61→    61→Build the application in the following priority order:
+    62→    62→
+    63→    63→1. Application foundation and design system
+    64→    64→2. Database and persistent storage
+    65→    65→3. Authentication and user profiles
+    66→    66→4. Multi-tenant workspaces and permissions
+    67→    67→5. Projects, tasks, and Kanban boards
+    68→    68→6. Team collaboration and notifications
+    69→    69→7. Calendar, timeline, and productivity analytics
+    70→    70→8. Subscription plans and billing
+    71→    71→9. Workspace settings and administration
+    72→    72→10. Seed data and demo accounts
+    73→    73→11. Testing, security hardening, and deployment documentation
+    74→    74→
+    75→    75→Do not stop after completing the landing page or dashboard.
+    76→    76→
+    77→    77→If execution limits require multiple implementation steps, preserve the existing architecture and continue building the remaining features incrementally.
+    78→    78→
+    79→    79→---
+    80→    80→
+    81→    81→# 3. TECHNOLOGY STACK
+    82→    82→
+    83→    83→Use the following stack when supported:
+    84→    84→
+    85→    85→Frontend:
+    86→    86→- Next.js with App Router
+    87→    87→- React
+    88→    88→- TypeScript with strict mode
+    89→    89→- Tailwind CSS
+    90→    90→- shadcn/ui
+    91→    91→- Lucide icons
+    92→    92→- React Hook Form
+    93→    93→- Zod
+    94→    94→- TanStack Query when useful
+    95→    95→
+    96→    96→Backend:
+    97→    97→- Next.js server-side architecture
+    98→    98→- Server Actions or REST API endpoints
+    99→    99→- Dedicated service and business-logic layers
+   100→   100→- Server-side authorization and validation
+   101→   101→
+   102→   102→Database:
+   103→   103→- PostgreSQL
+   104→   104→- Prisma ORM
+   105→   105→
+   106→   106→Authentication:
+   107→   107→- Auth.js or another secure, supported authentication provider
+   108→   108→- Secure session management
+   109→   109→- Password hashing if password-based authentication is implemented
+   110→   110→
+   111→   111→Billing:
+   112→   112→- Stripe Checkout and Stripe Billing, or a supported equivalent
+   113→   113→- Verified server-side webhook processing
+   114→   114→- Test mode during development
+   115→   115→
+   116→   116→File storage:
+   117→   117→- S3-compatible storage or another supported managed object-storage service
+   118→   118→
+   119→   119→Testing:
+   120→   120→- Vitest or Jest for unit and integration tests
+   121→   121→- Playwright for end-to-end tests, if supported
+   122→   122→
+   123→   123→Deployment:
+   124→   124→- Vercel or a suitable hosting platform
+   125→   125→- Managed PostgreSQL
+   126→   126→- Managed file storage
+   127→   127→
+   128→   128→## Architecture rules
+   129→   129→
+   130→   130→- Keep UI components separate from business logic.
+   131→   131→- Use reusable components and services.
+   132→   132→- Validate all external input on the server.
+   133→   133→- Keep secrets exclusively on the server.
+   134→   134→- Use database migrations.
+   135→   135→- Use transactions for operations requiring consistency.
+   136→   136→- Avoid unnecessary dependencies.
+   137→   137→- Do not create a second backend if the platform already provides a suitable backend.
+   138→   138→- Never silently replace persistent storage with localStorage.
+   139→   139→- If ARENA provides a managed database or native authentication, use it where appropriate and document the architecture.
+   140→   140→
+   141→   141→---
+   142→   142→
+   143→   143→# 4. BRAND AND VISUAL IDENTITY
+   144→   144→
+   145→   145→Brand: NEXORA
+   146→   146→
+   147→   147→Create a polished, premium SaaS interface inspired by modern productivity products such as Linear, Notion, Asana, and ClickUp, while maintaining a distinctive visual identity.
+   148→   148→
+   149→   149→Do not copy any product's exact interface.
+   150→   150→
+   151→   151→## Visual direction
+   152→   152→
+   153→   153→- Minimal and professional
+   154→   154→- Excellent typography
+   155→   155→- Clean information hierarchy
+   156→   156→- Generous spacing
+   157→   157→- Compact, useful navigation
+   158→   158→- Consistent cards and tables
+   159→   159→- Subtle borders and shadows
+   160→   160→- Refined micro-interactions
+   161→   161→- Clear status indicators
+   162→   162→- Fast and intuitive workflows
+   163→   163→
+   164→   164→## Color system
+   165→   165→
+   166→   166→Light theme:
+   167→   167→- Background: near-white
+   168→   168→- Surfaces: white
+   169→   169→- Primary text: deep charcoal
+   170→   170→- Secondary text: neutral gray
+   171→   171→- Primary accent: indigo or blue-violet
+   172→   172→- Success: emerald
+   173→   173→- Warning: amber
+   174→   174→- Error: red
+   175→   175→
+   176→   176→Dark theme:
+   177→   177→- Background: deep charcoal/navy
+   178→   178→- Surfaces: elevated dark gray
+   179→   179→- Borders: subtle gray
+   180→   180→- Primary text: near-white
+   181→   181→- Secondary text: muted gray
+   182→   182→- Accent: accessible indigo or blue-violet
+   183→   183→
+   184→   184→Use semantic design tokens. Avoid hardcoding colors throughout components.
+   185→   185→
+   186→   186→## Theme functionality
+   187→   187→
+   188→   188→Implement:
+   189→   189→- Light mode
+   190→   190→- Dark mode
+   191→   191→- System preference
+   192→   192→- Persistent user preference
+   193→   193→- Correct contrast in both themes
+   194→   194→- No theme flicker during initial load
+   195→   195→- Consistent colors across charts, dialogs, dropdowns, and forms
+   196→   196→
+   197→   197→The theme switch must actually work.
+   198→   198→
+   199→   199→---
+   200→   200→
+   201→   201→# 5. APPLICATION LOCALIZATION
+   202→   202→
+   203→   203→Use English as the default language.
+   204→   204→
+   205→   205→Prepare an architecture for future localization, including French and Arabic.
+   206→   206→
+   207→   207→Requirements:
+   208→   208→- Centralized translation dictionaries
+   209→   209→- No scattered hardcoded interface strings where avoidable
+   210→   210→- Locale-aware dates and numbers
+   211→   211→- Currency formatting based on the workspace billing currency
+   212→   212→- RTL support when Arabic is enabled
+   213→   213→
+   214→   214→Use a consistent date and time strategy. Store timestamps in UTC and display them in the appropriate user or workspace timezone.
+   215→   215→
+   216→   216→---
+   217→   217→
+   218→   218→# 6. PUBLIC WEBSITE
+   219→   219→
+   220→   220→Create these public pages:
+   221→   221→
+   222→   222→- /
+   223→   223→- /features
+   224→   224→- /pricing
+   225→   225→- /about
+   226→   226→- /contact
+   227→   227→- /login
+   228→   228→- /register
+   229→   229→- /forgot-password
+   230→   230→- /reset-password
+   231→   231→- /terms
+   232→   232→- /privacy
+   233→   233→
+   234→   234→## Landing page
+   235→   235→
+   236→   236→Create a polished, conversion-focused landing page.
+   237→   237→
+   238→   238→### Navbar
+   239→   239→
+   240→   240→- NEXORA logo
+   241→   241→- Features
+   242→   242→- Solutions
+   243→   243→- Pricing
+   244→   244→- Resources
+   245→   245→- Sign in
+   246→   246→- Get started
+   247→   247→
+   248→   248→### Hero
+   249→   249→
+   250→   250→Headline:
+   251→   251→
+   252→   252→"Turn ambitious plans into exceptional results."
+   253→   253→
+   254→   254→Supporting text:
+   255→   255→
+   256→   256→"Plan projects, organize your team, track progress, and deliver better work with one powerful workspace."
+   257→   257→
+   258→   258→Primary CTA: "Start for free"
+   259→   259→
+   260→   260→Secondary CTA: "Explore the platform"
+   261→   261→
+   262→   262→Include a high-quality product preview showing a real application screen.
+   263→   263→
+   264→   264→Do not create misleading customer logos or fabricated testimonials presented as genuine.
+   265→   265→
+   266→   266→### Additional sections
+   267→   267→
+   268→   268→1. Hero
+   269→   269→2. Product preview
+   270→   270→3. Trusted workflows
+   271→   271→4. Core features
+   272→   272→5. Project management overview
+   273→   273→6. Team collaboration
+   274→   274→7. Analytics and reporting
+   275→   275→8. Subscription plans
+   276→   276→9. FAQ
+   277→   277→10. Final CTA
+   278→   278→11. Footer
+   279→   279→
+   280→   280→All CTA buttons must navigate to a valid page or perform their intended action.
+   281→   281→
+   282→   282→---
+   283→   283→
+   284→   284→# 7. AUTHENTICATION
+   285→   285→
+   286→   286→Implement functional authentication:
+   287→   287→
+   288→   288→- Register
+   289→   289→- Login
+   290→   290→- Logout
+   291→   291→- Forgot password
+   292→   292→- Password reset
+   293→   293→- Email verification where supported
+   294→   294→- Session management
+   295→   295→- Protected routes
+   296→   296→- Account settings
+   297→   297→- Profile management
+   298→   298→
+   299→   299→Support Google or other OAuth providers only when correctly configured.
+   300→   300→
+   301→   301→Do not simulate successful OAuth when credentials are unavailable.
+   302→   302→
+   303→   303→User profile fields:
+   304→   304→
+   305→   305→- ID
+   306→   306→- Name
+   307→   307→- Email
+   308→   308→- Avatar
+   309→   309→- Timezone
+   310→   310→- Locale
+   311→   311→- Theme preference
+   312→   312→- Account status
+   313→   313→- Created date
+   314→   314→- Updated date
+   315→   315→
+   316→   316→Account statuses:
+   317→   317→
+   318→   318→- ACTIVE
+   319→   319→- SUSPENDED
+   320→   320→- DEACTIVATED
+   321→   321→
+   322→   322→Use secure session cookies, appropriate password hashing, rate limiting, and safe error messages.
+   323→   323→
+   324→   324→Never store plaintext passwords.
+   325→   325→
+   326→   326→---
+   327→   327→
+   328→   328→# 8. MULTI-TENANT WORKSPACES
+   329→   329→
+   330→   330→This is one of the most important parts of the application.
+   331→   331→
+   332→   332→A user can create or join multiple workspaces and switch between them.
+   333→   333→
+   334→   334→Examples:
+   335→   335→
+   336→   336→- Personal workspace
+   337→   337→- Startup workspace
+   338→   338→- Agency workspace
+   339→   339→- Client project workspace
+   340→   340→
+   341→   341→Each workspace has its own:
+   342→   342→
+   343→   343→- Name
+   344→   344→- Slug
+   345→   345→- Logo
+   346→   346→- Description
+   347→   347→- Members
+   348→   348→- Projects
+   349→   349→- Tasks
+   350→   350→- Labels
+   351→   351→- Files
+   352→   352→- Reports
+   353→   353→- Activity history
+   354→   354→- Settings
+   355→   355→- Subscription
+   356→   356→- Billing records
+   357→   357→
+   358→   358→## Workspace creation
+   359→   359→
+   360→   360→Collect:
+   361→   361→
+   362→   362→- Workspace name
+   363→   363→- Workspace URL/slug
+   364→   364→- Workspace type
+   365→   365→- Team size
+   366→   366→- Intended use
+   367→   367→
+   368→   368→After creation, show a guided onboarding experience.
+   369→   369→
+   370→   370→## Workspace switcher
+   371→   371→
+   372→   372→Place a workspace switcher in the sidebar header.
+   373→   373→
+   374→   374→Users must be able to:
+   375→   375→- View their workspaces
+   376→   376→- Switch workspaces
+   377→   377→- Create a workspace
+   378→   378→- Manage workspace settings if authorized
+   379→   379→
+   380→   380→Switching workspaces must reload the correct workspace-scoped data.
+   381→   381→
+   382→   382→Never leak data across workspaces.
+   383→   383→
+   384→   384→## Tenant isolation
+   385→   385→
+   386→   386→Every tenant-owned record must be associated with the appropriate workspace directly or through a validated parent relationship.
+   387→   387→
+   388→   388→Enforce workspace access in the server-side data-access layer.
+   389→   389→
+   390→   390→Never trust workspace IDs supplied by the browser without checking membership and permissions.
+   391→   391→
+   392→   392→Where supported, use PostgreSQL Row-Level Security as an additional protection layer, not as a substitute for correct server authorization.
+   393→   393→
+   394→   394→Create automated tests verifying that a user in Workspace A cannot read or modify records belonging to Workspace B.
+   395→   395→
+   396→   396→---
+   397→   397→
+   398→   398→# 9. ROLES AND PERMISSIONS
+   399→   399→
+   400→   400→Implement these roles:
+   401→   401→
+   402→   402→## OWNER
+   403→   403→
+   404→   404→- Full workspace control
+   405→   405→- Manage members and roles
+   406→   406→- Manage workspace settings
+   407→   407→- Manage subscription and billing
+   408→   408→- Create, edit, archive, and delete projects
+   409→   409→- Manage all workspace resources
+   410→   410→
+   411→   411→## ADMIN
+   412→   412→
+   413→   413→- Manage members where permitted
+   414→   414→- Manage projects and tasks
+   415→   415→- Configure workspace settings
+   416→   416→- Access workspace analytics
+   417→   417→- Cannot transfer ownership or perform restricted billing operations unless explicitly authorized
+   418→   418→
+   419→   419→## PROJECT_MANAGER
+   420→   420→
+   421→   421→- Create and manage projects
+   422→   422→- Manage project members
+   423→   423→- Assign tasks
+   424→   424→- Manage milestones
+   425→   425→- View project analytics
+   426→   426→- Cannot change workspace ownership
+   427→   427→
+   428→   428→## MEMBER
+   429→   429→
+   430→   430→- View authorized projects
+   431→   431→- Create and update tasks according to project permissions
+   432→   432→- Comment on tasks
+   433→   433→- Upload permitted files
+   434→   434→- Participate in collaboration
+   435→   435→
+   436→   436→## VIEWER
+   437→   437→
+   438→   438→- Read-only access to authorized workspace content
+   439→   439→- Cannot create or modify projects, tasks, comments, or settings
+   440→   440→
+   441→   441→Build permission checks on the server.
+   442→   442→
+   443→   443→Hiding buttons in the frontend is not authorization.
+   444→   444→
+   445→   445→Prevent privilege escalation, including unauthorized self-promotion to OWNER or ADMIN.
+   446→   446→
+   447→   447→---
+   448→   448→
+   449→   449→# 10. INVITATIONS AND TEAM MANAGEMENT
+   450→   450→
+   451→   451→Implement member invitations.
+   452→   452→
+   453→   453→Features:
+   454→   454→- Invite by email
+   455→   455→- Assign a role
+   456→   456→- Generate a secure invitation token
+   457→   457→- Set invitation expiration
+   458→   458→- Accept invitation
+   459→   459→- Revoke pending invitation
+   460→   460→- Resend invitation
+   461→   461→- Remove a member
+   462→   462→- Change member role
+   463→   463→- View invitation status
+   464→   464→
+   465→   465→Invitation statuses:
+   466→   466→
+   467→   467→- PENDING
+   468→   468→- ACCEPTED
+   469→   469→- EXPIRED
+   470→   470→- REVOKED
+   471→   471→
+   472→   472→Invitation tokens must be securely generated and stored safely.
+   473→   473→
+   474→   474→Acceptance must verify the recipient identity and token expiration.
+   475→   475→
+   476→   476→If email delivery is not configured, provide a development-only invitation flow and document the limitation. Do not claim an email was sent when it was not.
+   477→   477→
+   478→   478→---
+   479→   479→
+   480→   480→# 11. MAIN APPLICATION LAYOUT
+   481→   481→
+   482→   482→Create an authenticated application shell.
+   483→   483→
+   484→   484→## Desktop layout
+   485→   485→
+   486→   486→Left sidebar:
+   487→   487→- Workspace switcher
+   488→   488→- Overview
+   489→   489→- Inbox
+   490→   490→- My Tasks
+   491→   491→- Projects
+   492→   492→- Calendar
+   493→   493→- Team
+   494→   494→- Reports
+   495→   495→- Settings
+   496→   496→
+   497→   497→Bottom sidebar:
+   498→   498→- Help
+   499→   499→- Theme switch
+   500→   500→- User profile
+   501→   501→
+   502→   502→Top header:
+   503→   503→- Breadcrumbs
+   504→   504→- Search
+   505→   505→- Create button
+   506→   506→- Notifications
+   507→   507→- Profile menu
+   508→   508→
+   509→   509→Main content:
+   510→   510→- Page title
+   511→   511→- Contextual actions
+   512→   512→- Dashboard cards
+   513→   513→- Tables, boards, calendars, and charts
+   514→   514→
+   515→   515→## Mobile layout
+   516→   516→
+   517→   517→- Collapsible sidebar or drawer
+   518→   518→- Compact top navigation
+   519→   519→- Responsive project boards
+   520→   520→- Mobile-friendly task editor
+   521→   521→- Touch-friendly controls
+   522→   522→- No horizontal overflow
+   523→   523→- Adaptive tables and charts
+   524→   524→
+   525→   525→Maintain a consistent application shell across authenticated pages.
+   526→   526→
+   527→   527→---
+   528→   528→
+   529→   529→# 12. DASHBOARD
+   530→   530→
+   531→   531→Create a data-driven overview dashboard.
+   532→   532→
+   533→   533→Display:
+   534→   534→
+   535→   535→- Total active projects
+   536→   536→- Open tasks
+   537→   537→- Completed tasks
+   538→   538→- Overdue tasks
+   539→   539→- Tasks assigned to the current user
+   540→   540→- Tasks completed this week
+   541→   541→- Upcoming deadlines
+   542→   542→- Team workload
+   543→   543→- Recent activity
+   544→   544→- Project progress
+   545→   545→- Personal productivity
+   546→   546→
+   547→   547→Charts:
+   548→   548→- Tasks completed over time
+   549→   549→- Project progress
+   550→   550→- Tasks by status
+   551→   551→- Tasks by priority
+   552→   552→- Workload by member
+   553→   553→
+   554→   554→Add date-range filters.
+   555→   555→
+   556→   556→Dashboard statistics must be calculated from actual authorized database records.
+   557→   557→
+   558→   558→Never hardcode metrics as if they were live data.
+   559→   559→
+   560→   560→Provide loading, empty, and error states.
+   561→   561→
+   562→   562→---
+   563→   563→
+   564→   564→# 13. PROJECT MANAGEMENT
+   565→   565→
+   566→   566→Implement complete project CRUD.
+   567→   567→
+   568→   568→Project fields:
+   569→   569→
+   570→   570→- ID
+   571→   571→- Workspace ID
+   572→   572→- Name
+   573→   573→- Slug
+   574→   574→- Description
+   575→   575→- Color
+   576→   576→- Icon
+   577→   577→- Owner
+   578→   578→- Status
+   579→   579→- Priority
+   580→   580→- Start date
+   581→   581→- Due date
+   582→   582→- Visibility
+   583→   583→- Archived timestamp
+   584→   584→- Created timestamp
+   585→   585→- Updated timestamp
+   586→   586→
+   587→   587→Project statuses:
+   588→   588→
+   589→   589→- PLANNING
+   590→   590→- ACTIVE
+   591→   591→- ON_HOLD
+   592→   592→- COMPLETED
+   593→   593→- ARCHIVED
+   594→   594→
+   595→   595→Project priorities:
+   596→   596→
+   597→   597→- LOW
+   598→   598→- MEDIUM
+   599→   599→- HIGH
+   600→   600→- URGENT
+   601→   601→
+   602→   602→Features:
+   603→   603→- Create project
+   604→   604→- View project
+   605→   605→- Edit project
+   606→   606→- Archive project
+   607→   607→- Restore project
+   608→   608→- Delete project with confirmation
+   609→   609→- Assign project members
+   610→   610→- Set project deadlines
+   611→   611→- Track progress
+   612→   612→- View project activity
+   613→   613→- Filter and sort projects
+   614→   614→- Search projects
+   615→   615→- Paginate project lists
+   616→   616→
+   617→   617→Calculate progress from task completion or an explicitly defined milestone-based system.
+   618→   618→
+   619→   619→Do not mix different progress calculations inconsistently.
+   620→   620→
+   621→   621→Deleting a project must follow explicit database deletion rules and prevent accidental loss of important data.
+   622→   622→
+   623→   623→---
+   624→   624→
+   625→   625→# 14. TASK MANAGEMENT
+   626→   626→
+   627→   627→Implement full task CRUD.
+   628→   628→
+   629→   629→Task fields:
+   630→   630→
+   631→   631→- ID
+   632→   632→- Workspace ID
+   633→   633→- Project ID
+   634→   634→- Title
+   635→   635→- Description
+   636→   636→- Status
+   637→   637→- Priority
+   638→   638→- Assignee
+   639→   639→- Creator
+   640→   640→- Start date
+   641→   641→- Due date
+   642→   642→- Estimated effort
+   643→   643→- Actual effort, if supported
+   644→   644→- Position/order
+   645→   645→- Parent task, optional
+   646→   646→- Created timestamp
+   647→   647→- Updated timestamp
+   648→   648→- Completed timestamp
+   649→   649→
+   650→   650→Task statuses:
+   651→   651→
+   652→   652→- BACKLOG
+   653→   653→- TODO
+   654→   654→- IN_PROGRESS
+   655→   655→- IN_REVIEW
+   656→   656→- DONE
+   657→   657→- CANCELLED
+   658→   658→
+   659→   659→Task priorities:
+   660→   660→
+   661→   661→- LOW
+   662→   662→- MEDIUM
+   663→   663→- HIGH
+   664→   664→- URGENT
+   665→   665→
+   666→   666→Features:
+   667→   667→- Create tasks
+   668→   668→- Edit tasks
+   669→   669→- Delete tasks
+   670→   670→- Assign members
+   671→   671→- Set deadlines
+   672→   672→- Change status
+   673→   673→- Change priority
+   674→   674→- Add labels
+   675→   675→- Add descriptions
+   676→   676→- Add subtasks
+   677→   677→- Set task dependencies
+   678→   678→- Attach files
+   679→   679→- Add comments
+   680→   680→- View activity history
+   681→   681→- Filter and sort tasks
+   682→   682→- Bulk-update eligible tasks
+   683→   683→- Search tasks
+   684→   684→
+   685→   685→Validate that assignees are authorized members of the relevant workspace and project.
+   686→   686→
+   687→   687→Prevent invalid task and project relationships.
+   688→   688→
+   689→   689→---
+   690→   690→
+   691→   691→# 15. KANBAN BOARD
+   692→   692→
+   693→   693→Create a polished, interactive Kanban board for every project.
+   694→   694→
+   695→   695→Columns:
+   696→   696→- Backlog
+   697→   697→- To Do
+   698→   698→- In Progress
+   699→   699→- In Review
+   700→   700→- Done
+   701→   701→
+   702→   702→Task cards display:
+   703→   703→- Title
+   704→   704→- Priority
+   705→   705→- Assignee avatar
+   706→   706→- Due date
+   707→   707→- Labels
+   708→   708→- Comment count
+   709→   709→- Attachment count
+   710→   710→
+   711→   711→Features:
+   712→   712→- Drag and drop
+   713→   713→- Reorder tasks
+   714→   714→- Move tasks between columns
+   715→   715→- Create a task in a column
+   716→   716→- Open task details
+   717→   717→- Filter by assignee
+   718→   718→- Filter by priority
+   719→   719→- Filter by label
+   720→   720→- Search tasks
+   721→   721→
+   722→   722→Persist every successful drag-and-drop change to the database.
+   723→   723→
+   724→   724→Implement optimistic updates with rollback on failure.
+   725→   725→
+   726→   726→Use concurrency-safe ordering where appropriate.
+   727→   727→
+   728→   728→Provide keyboard-accessible alternatives to drag-and-drop.
+   729→   729→
+   730→   730→---
+   731→   731→
+   732→   732→# 16. PROJECT VIEWS
+   733→   733→
+   734→   734→Support multiple views:
+   735→   735→
+   736→   736→## List view
+   737→   737→
+   738→   738→- Task table
+   739→   739→- Sorting
+   740→   740→- Filtering
+   741→   741→- Grouping
+   742→   742→- Inline editing where safe
+   743→   743→
+   744→   744→## Board view
+   745→   745→
+   746→   746→- Interactive Kanban columns
+   747→   747→- Drag-and-drop task cards
+   748→   748→
+   749→   749→## Calendar view
+   750→   750→
+   751→   751→- Tasks and milestones by date
+   752→   752→- Monthly and weekly views
+   753→   753→- Deadline indicators
+   754→   754→- Navigation between periods
+   755→   755→
+   756→   756→## Timeline view
+   757→   757→
+   758→   758→- Projects and tasks represented by their scheduled dates
+   759→   759→- Start and due dates
+   760→   760→- Milestones
+   761→   761→- Basic dependency visualization
+   762→   762→
+   763→   763→If full Gantt functionality is too complex for the platform, implement a functional timeline view and clearly document the limitation rather than presenting a nonfunctional chart.
+   764→   764→
+   765→   765→Remember the user's selected view where appropriate.
+   766→   766→
+   767→   767→---
+   768→   768→
+   769→   769→# 17. TASK DETAILS
+   770→   770→
+   771→   771→Create a task detail panel or page.
+   772→   772→
+   773→   773→Include:
+   774→   774→
+   775→   775→- Title
+   776→   776→- Description
+   777→   777→- Status
+   778→   778→- Priority
+   779→   779→- Assignee
+   780→   780→- Due date
+   781→   781→- Labels
+   782→   782→- Subtasks
+   783→   783→- Dependencies
+   784→   784→- Attachments
+   785→   785→- Comments
+   786→   786→- Activity history
+   787→   787→
+   788→   788→Allow users to edit permitted fields without navigating away from the board.
+   789→   789→
+   790→   790→Track meaningful changes in the activity log.
+   791→   791→
+   792→   792→Avoid creating activity entries for unchanged values.
+   793→   793→
+   794→   794→---
+   795→   795→
+   796→   796→# 18. COMMENTS AND COLLABORATION
+   797→   797→
+   798→   798→Implement persistent comments.
+   799→   799→
+   800→   800→Features:
+   801→   801→- Create comment
+   802→   802→- Edit own comment
+   803→   803→- Delete own comment where permitted
+   804→   804→- Reply threads, if supported
+   805→   805→- Mention workspace members
+   806→   806→- Show timestamps
+   807→   807→- Track comment activity
+   808→   808→
+   809→   809→Validate all comment ownership and permissions.
+   810→   810→
+   811→   811→Sanitize rendered rich text and prevent stored XSS.
+   812→   812→
+   813→   813→For mentions, create appropriate notifications without exposing private data.
+   814→   814→
+   815→   815→---
+   816→   816→
+   817→   817→# 19. FILE ATTACHMENTS
+   818→   818→
+   819→   819→Support attachments for tasks and comments where appropriate.
+   820→   820→
+   821→   821→Requirements:
+   822→   822→- File selection
+   823→   823→- Upload progress
+   824→   824→- Download
+   825→   825→- Delete where authorized
+   826→   826→- File metadata
+   827→   827→- Size limits
+   828→   828→- Allowed file types
+   829→   829→- Secure access checks
+   830→   830→
+   831→   831→Store files in managed object storage rather than relying on temporary server disk.
+   832→   832→
+   833→   833→Do not expose private file URLs without appropriate access controls.
+   834→   834→
+   835→   835→Validate uploads on the server.
+   836→   836→
+   837→   837→---
+   838→   838→
+   839→   839→# 20. NOTIFICATIONS AND INBOX
+   840→   840→
+   841→   841→Implement an in-app notification center.
+   842→   842→
+   843→   843→Notification events:
+   844→   844→- Task assigned
+   845→   845→- Task mentioned
+   846→   846→- Task due soon
+   847→   847→- Task overdue
+   848→   848→- Comment received
+   849→   849→- Project invitation
+   850→   850→- Workspace invitation
+   851→   851→- Project membership changed
+   852→   852→- Project deadline approaching
+   853→   853→- Subscription or billing event, where appropriate
+   854→   854→
+   855→   855→Features:
+   856→   856→- Unread counter
+   857→   857→- Notification list
+   858→   858→- Mark as read
+   859→   859→- Mark all as read
+   860→   860→- Navigate to the relevant resource
+   861→   861→- Notification preferences
+   862→   862→
+   863→   863→Create a reliable inbox for items requiring the user's attention.
+   864→   864→
+   865→   865→Use optimistic updates only where rollback can be implemented safely.
+   866→   866→
+   867→   867→If real-time delivery is supported, use a reliable real-time mechanism. Otherwise use refresh/polling and document the behavior accurately.
+   868→   868→
+   869→   869→---
+   870→   870→
+   871→   871→# 21. SEARCH
+   872→   872→
+   873→   873→Implement global search scoped to the active workspace.
+   874→   874→
+   875→   875→Search across:
+   876→   876→- Projects
+   877→   877→- Tasks
+   878→   878→- Members, subject to permissions
+   879→   879→- Labels
+   880→   880→
+   881→   881→Features:
+   882→   882→- Debounced search
+   883→   883→- Recent searches, if appropriate
+   884→   884→- Keyboard navigation
+   885→   885→- Relevant result previews
+   886→   886→- Direct navigation to results
+   887→   887→
+   888→   888→Enforce authorization before returning search results.
+   889→   889→
+   890→   890→Do not reveal inaccessible records through result titles, counts, or snippets.
+   891→   891→
+   892→   892→---
+   893→   893→
+   894→   894→# 22. LABELS, MILESTONES, AND DEPENDENCIES
+   895→   895→
+   896→   896→## Labels
+   897→   897→
+   898→   898→Workspace-scoped labels:
+   899→   899→- Name
+   900→   900→- Color
+   901→   901→- Description
+   902→   902→
+   903→   903→Support adding/removing labels on tasks and filtering by labels.
+   904→   904→
+   905→   905→## Milestones
+   906→   906→
+   907→   907→Project milestones:
+   908→   908→- Name
+   909→   909→- Description
+   910→   910→- Due date
+   911→   911→- Status
+   912→   912→- Linked tasks
+   913→   913→
+   914→   914→Show milestones in relevant project views.
+   915→   915→
+   916→   916→## Task dependencies
+   917→   917→
+   918→   918→Support basic relationships:
+   919→   919→- Task A blocks Task B
+   920→   920→- Task B depends on Task A
+   921→   921→
+   922→   922→Prevent circular dependencies.
+   923→   923→
+   924→   924→Display dependency status and warn when a task is blocked.
+   925→   925→
+   926→   926→Do not prevent all task updates merely because dependencies exist; enforce explicit business rules.
+   927→   927→
+   928→   928→---
+   929→   929→
+   930→   930→# 23. CALENDAR AND DEADLINES
+   931→   931→
+   932→   932→Create a useful calendar experience.
+   933→   933→
+   934→   934→Include:
+   935→   935→- Task due dates
+   936→   936→- Project deadlines
+   937→   937→- Milestones
+   938→   938→- Assigned-user filtering
+   939→   939→- Status filtering
+   940→   940→- Navigation by month/week
+   941→   941→- Quick access to task details
+   942→   942→
+   943→   943→Provide clear indicators for overdue and upcoming tasks.
+   944→   944→
+   945→   945→Date changes must persist to the database.
+   946→   946→
+   947→   947→Handle timezones and date-only values consistently.
+   948→   948→
+   949→   949→---
+   950→   950→
+   951→   951→# 24. TEAM MANAGEMENT
+   952→   952→
+   953→   953→Create a team directory.
+   954→   954→
+   955→   955→Display:
+   956→   956→- Avatar
+   957→   957→- Name
+   958→   958→- Email where permitted
+   959→   959→- Role
+   960→   960→- Assigned tasks
+   961→   961→- Completed tasks
+   962→   962→- Current workload
+   963→   963→- Workspace join date
+   964→   964→
+   965→   965→Features:
+   966→   966→- Invite member
+   967→   967→- Change role
+   968→   968→- Remove member
+   969→   969→- View member activity where authorized
+   970→   970→- Filter team members
+   971→   971→- View workload
+   972→   972→
+   973→   973→Protect personal information.
+   974→   974→
+   975→   975→Do not expose emails or private member details to unauthorized users.
+   976→   976→
+   977→   977→---
+   978→   978→
+   979→   979→# 25. ADVANCED ANALYTICS
+   980→   980→
+   981→   981→Create an analytics module backed by real database data.
+   982→   982→
+   983→   983→## Workspace analytics
+   984→   984→
+   985→   985→- Project completion rate
+   986→   986→- Tasks created over time
+   987→   987→- Tasks completed over time
+   988→   988→- Overdue task rate
+   989→   989→- Average task completion time
+   990→   990→- Tasks by status
+   991→   991→- Tasks by priority
+   992→   992→- Project progress
+   993→   993→- Workload by member
+   994→   994→- On-time completion rate
+   995→   995→- Project deadline performance
+   996→   996→
+   997→   997→## Project analytics
+   998→   998→
+   999→   999→- Total tasks
+  1000→  1000→- Completed tasks
+  1001→  1001→- Remaining tasks
+  1002→  1002→- Overdue tasks
+  1003→  1003→- Completion trend
+  1004→  1004→- Workload distribution
+  1005→  1005→- Status distribution
+  1006→  1006→- Milestone progress
+  1007→  1007→
+  1008→  1008→## Member analytics
+  1009→  1009→
+  1010→  1010→- Assigned tasks
+  1011→  1011→- Completed tasks
+  1012→  1012→- Overdue assigned tasks
+  1013→  1013→- Workload
+  1014→  1014→- Completion trend
+  1015→  1015→
+  1016→  1016→Analytics should measure work activity, not claim to measure employee quality or productivity conclusively.
+  1017→  1017→
+  1018→  1018→Exclude unauthorized data.
+  1019→  1019→
+  1020→  1020→Use sensible date ranges and define calculations consistently.
+  1021→  1021→
+  1022→  1022→Support:
+  1023→  1023→- Last 7 days
+  1024→  1024→- Last 30 days
+  1025→  1025→- Last 90 days
+  1026→  1026→- Custom date range
+  1027→  1027→
+  1028→  1028→Use accessible charts with readable legends and tooltips.
+  1029→  1029→
+  1030→  1030→Avoid unnecessary database queries.
+  1031→  1031→
+  1032→  1032→Cache analytics carefully and invalidate or refresh cached data when relevant records change.
+  1033→  1033→
+  1034→  1034→---
+  1035→  1035→
+  1036→  1036→# 26. SUBSCRIPTIONS AND BILLING
+  1037→  1037→
+  1038→  1038→Implement subscription-ready SaaS billing.
+  1039→  1039→
+  1040→  1040→Use Stripe or an equivalent supported provider.
+  1041→  1041→
+  1042→  1042→If billing credentials are unavailable, implement the integration structure and test-mode configuration, and clearly document what must be configured. Do not simulate successful real payments.
+  1043→  1043→
+  1044→  1044→## Plans
+  1045→  1045→
+  1046→  1046→### FREE
+  1047→  1047→
+  1048→  1048→- 1 workspace
+  1049→  1049→- Up to 3 active members
+  1050→  1050→- Up to 3 active projects
+  1051→  1051→- Basic task management
+  1052→  1052→- List and Kanban views
+  1053→  1053→- Basic notifications
+  1054→  1054→- Basic analytics
+  1055→  1055→
+  1056→  1056→### PRO
+  1057→  1057→
+  1058→  1058→Suggested price: $10 per member/month.
+  1059→  1059→
+  1060→  1060→- More projects
+  1061→  1061→- Expanded team limits
+  1062→  1062→- Calendar and timeline views
+  1063→  1063→- Advanced analytics
+  1064→  1064→- File attachments
+  1065→  1065→- Task dependencies
+  1066→  1066→- Custom labels
+  1067→  1067→- Priority support
+  1068→  1068→
+  1069→  1069→### BUSINESS
+  1070→  1070→
+  1071→  1071→Suggested price: $20 per member/month.
+  1072→  1072→
+  1073→  1073→- Everything in PRO
+  1074→  1074→- Advanced workspace controls
+  1075→  1075→- Expanded reporting
+  1076→  1076→- Custom roles/permissions where supported
+  1077→  1077→- Audit history
+  1078→  1078→- Enhanced team administration
+  1079→  1079→- Higher configurable limits
+  1080→  1080→
+  1081→  1081→These are illustrative initial prices. Make them configurable through application settings or billing configuration.
+  1082→  1082→
+  1083→  1083→Do not hardcode prices in multiple unrelated components.
+  1084→  1084→
+  1085→  1085→Support monthly and annual billing where the provider is configured.
+  1086→  1086→
+  1087→  1087→## Billing pages
+  1088→  1088→
+  1089→  1089→Create:
+  1090→  1090→- /settings/billing
+  1091→  1091→- /settings/billing/plans
+  1092→  1092→- /settings/billing/invoices
+  1093→  1093→
+  1094→  1094→Features:
+  1095→  1095→- Current plan
+  1096→  1096→- Subscription status
+  1097→  1097→- Plan comparison
+  1098→  1098→- Upgrade
+  1099→  1099→- Downgrade
+  1100→  1100→- Cancel subscription
+  1101→  1101→- Reactivate where supported
+  1102→  1102→- Billing interval
+  1103→  1103→- Invoice history
+  1104→  1104→- Payment status
+  1105→  1105→- Customer portal
+  1106→  1106→
+  1107→  1107→Use hosted checkout for payment collection.
+  1108→  1108→
+  1109→  1109→Do not store card numbers or sensitive payment credentials.
+  1110→  1110→
+  1111→  1111→## Billing rules
+  1112→  1112→
+  1113→  1113→- Associate subscriptions with the correct workspace.
+  1114→  1114→- Restrict billing administration to authorized roles.
+  1115→  1115→- Validate subscription state on the server.
+  1116→  1116→- Process provider webhooks securely.
+  1117→  1117→- Verify webhook signatures.
+  1118→  1118→- Make webhook processing idempotent.
+  1119→  1119→- Handle duplicate and out-of-order events safely.
+  1120→  1120→- Do not grant paid entitlements based solely on client-side success redirects.
+  1121→  1121→- Keep subscription and entitlement logic centralized.
+  1122→  1122→- Record billing events for troubleshooting.
+  1123→  1123→
+  1124→  1124→Subscription states should include appropriate equivalents of:
+  1125→  1125→- TRIALING
+  1126→  1126→- ACTIVE
+  1127→  1127→- PAST_DUE
+  1128→  1128→- CANCELLED
+  1129→  1129→- INCOMPLETE
+  1130→  1130→
+  1131→  1131→Use the payment provider's actual status model where appropriate.
+  1132→  1132→
+  1133→  1133→## Entitlement enforcement
+  1134→  1134→
+  1135→  1135→Implement a central plan-entitlement service.
+  1136→  1136→
+  1137→  1137→Before creating resources that have plan limits, check the workspace's effective entitlements on the server.
+  1138→  1138→
+  1139→  1139→If a limit is reached:
+  1140→  1140→- Explain the limitation clearly.
+  1141→  1141→- Preserve existing data.
+  1142→  1142→- Offer an upgrade path.
+  1143→  1143→- Do not silently delete records.
+  1144→  1144→
+  1145→  1145→Define how downgrades affect existing resources. Prefer read-only access to excess resources or a clear remediation workflow instead of destructive data loss.
+  1146→  1146→
+  1147→  1147→---
+  1148→  1148→
+  1149→  1149→# 27. DATABASE DESIGN
+  1150→  1150→
+  1151→  1151→Use PostgreSQL with Prisma or the best supported equivalent.
+  1152→  1152→
+  1153→  1153→Create normalized models and migrations for at least:
+  1154→  1154→
+  1155→  1155→- User
+  1156→  1156→- Account, if required by the authentication provider
+  1157→  1157→- Session, if required
+  1158→  1158→- Workspace
+  1159→  1159→- WorkspaceMember
+  1160→  1160→- WorkspaceInvitation
+  1161→  1161→- Project
+  1162→  1162→- ProjectMember
+  1163→  1163→- Task
+  1164→  1164→- TaskLabel
+  1165→  1165→- Label
+  1166→  1166→- TaskDependency
+  1167→  1167→- Milestone
+  1168→  1168→- Comment
+  1169→  1169→- Attachment
+  1170→  1170→- Notification
+  1171→  1171→- NotificationPreference
+  1172→  1172→- ActivityLog
+  1173→  1173→- Subscription
+  1174→  1174→- BillingEvent
+  1175→  1175→- InvoiceRecord, if needed
+  1176→  1176→- AuditLog, where appropriate
+  1177→  1177→
+  1178→  1178→Add further models only where required by actual features.
+  1179→  1179→
+  1180→  1180→## Important relationships
+  1181→  1181→
+  1182→  1182→- A user can belong to many workspaces.
+  1183→  1183→- A workspace has many members.
+  1184→  1184→- A workspace has many projects.
+  1185→  1185→- A project belongs to one workspace.
+  1186→  1186→- A task belongs to one project and workspace.
+  1187→  1187→- A task can have an assignee who must be an authorized workspace member.
+  1188→  1188→- A project can have multiple members.
+  1189→  1189→- Tasks can have comments, labels, dependencies, attachments, and activity events.
+  1190→  1190→- A workspace has its own subscription and billing configuration.
+  1191→  1191→- Notifications belong to the intended recipient and relevant workspace where appropriate.
+  1192→  1192→
+  1193→  1193→## Database quality
+  1194→  1194→
+  1195→  1195→- Use UUIDs or secure equivalent identifiers.
+  1196→  1196→- Use foreign keys.
+  1197→  1197→- Use appropriate unique constraints.
+  1198→  1198→- Add indexes for common queries.
+  1199→  1199→- Use createdAt and updatedAt consistently.
+  1200→  1200→- Use transactions for critical operations.
+  1201→  1201→- Define deletion and archival behavior explicitly.
+  1202→  1202→- Prevent orphaned records.
+  1203→  1203→- Avoid storing duplicate calculated values unless required for performance.
+  1204→  1204→- Use Decimal or integer minor units for monetary values, not floating-point arithmetic.
+  1205→  1205→
+  1206→  1206→Important indexes should cover commonly queried fields, including:
+  1207→  1207→- workspaceId
+  1208→  1208→- userId
+  1209→  1209→- projectId
+  1210→  1210→- assigneeId
+  1211→  1211→- status
+  1212→  1212→- priority
+  1213→  1213→- dueDate
+  1214→  1214→- createdAt
+  1215→  1215→- subscription provider IDs
+  1216→  1216→
+  1217→  1217→Ensure unique constraints are appropriate for tenant-scoped values.
+  1218→  1218→
+  1219→  1219→For example, workspace slugs must be unique according to the chosen routing model.
+  1220→  1220→
+  1221→  1221→---
+  1222→  1222→
+  1223→  1223→# 28. API AND BUSINESS LOGIC
+  1224→  1224→
+  1225→  1225→Use consistent, typed API responses.
+  1226→  1226→
+  1227→  1227→Organize endpoints or server actions by domain:
+  1228→  1228→
+  1229→  1229→- Authentication
+  1230→  1230→- Workspaces
+  1231→  1231→- Members
+  1232→  1232→- Invitations
+  1233→  1233→- Projects
+  1234→  1234→- Tasks
+  1235→  1235→- Comments
+  1236→  1236→- Attachments
+  1237→  1237→- Labels
+  1238→  1238→- Milestones
+  1239→  1239→- Dependencies
+  1240→  1240→- Notifications
+  1241→  1241→- Analytics
+  1242→  1242→- Subscriptions
+  1243→  1243→- Billing
+  1244→  1244→- Settings
+  1245→  1245→
+  1246→  1246→Use standard HTTP status codes when using REST APIs.
+  1247→  1247→
+  1248→  1248→Validate request bodies and query parameters.
+  1249→  1249→
+  1250→  1250→Handle:
+  1251→  1251→- Unauthorized requests
+  1252→  1252→- Forbidden operations
+  1253→  1253→- Missing records
+  1254→  1254→- Invalid input
+  1255→  1255→- Conflicts
+  1256→  1256→- Rate limits
+  1257→  1257→- Unexpected failures
+  1258→  1258→
+  1259→  1259→Return user-safe errors without exposing internal stack traces.
+  1260→  1260→
+  1261→  1261→Never trust user IDs, role values, workspace IDs, billing statuses, or calculated prices sent by the browser.
+  1262→  1262→
+  1263→  1263→Load trusted identity from the authenticated server session.
+  1264→  1264→
+  1265→  1265→---
+  1266→  1266→
+  1267→  1267→# 29. SECURITY REQUIREMENTS
+  1268→  1268→
+  1269→  1269→Security is mandatory.
+  1270→  1270→
+  1271→  1271→Implement:
+  1272→  1272→
+  1273→  1273→- Server-side authorization
+  1274→  1274→- Multi-tenant data isolation
+  1275→  1275→- Secure authentication
+  1276→  1276→- Secure session management
+  1277→  1277→- Password hashing when applicable
+  1278→  1278→- Input validation
+  1279→  1279→- Output escaping
+  1280→  1280→- XSS protection
+  1281→  1281→- CSRF protection where applicable
+  1282→  1282→- Rate limiting
+  1283→  1283→- Secure file upload validation
+  1284→  1284→- Secure HTTP headers
+  1285→  1285→- Safe redirects
+  1286→  1286→- SQL injection protection through parameterized ORM queries
+  1287→  1287→- Environment variable management
+  1288→  1288→- Secrets isolation
+  1289→  1289→- Webhook signature verification
+  1290→  1290→- Audit logging for sensitive actions
+  1291→  1291→
+  1292→  1292→Sensitive actions include:
+  1293→  1293→- Role changes
+  1294→  1294→- Member removal
+  1295→  1295→- Workspace ownership transfer
+  1296→  1296→- Billing changes
+  1297→  1297→- Subscription changes
+  1298→  1298→- Destructive project operations
+  1299→  1299→
+  1300→  1300→Do not log passwords, session tokens, reset tokens, full payment data, or secrets.
+  1301→  1301→
+  1302→  1302→Do not rely on frontend checks for permissions.
+  1303→  1303→
+  1304→  1304→Write tests specifically designed to detect cross-workspace data leaks.
+  1305→  1305→
+  1306→  1306→---
+  1307→  1307→
+  1308→  1308→# 30. EMPTY, LOADING, AND ERROR STATES
+  1309→  1309→
+  1310→  1310→Every major page must implement all relevant states.
+  1311→  1311→
+  1312→  1312→## Empty states
+  1313→  1313→
+  1314→  1314→Examples:
+  1315→  1315→
+  1316→  1316→"No projects yet. Create your first project to get started."
+  1317→  1317→
+  1318→  1318→"No tasks assigned to you."
+  1319→  1319→
+  1320→  1320→"Your inbox is clear."
+  1321→  1321→
+  1322→  1322→"Invite your team to start collaborating."
+  1323→  1323→
+  1324→  1324→Each empty state should have a relevant CTA.
+  1325→  1325→
+  1326→  1326→## Loading states
+  1327→  1327→
+  1328→  1328→Implement:
+  1329→  1329→- Dashboard skeleton
+  1330→  1330→- Project card skeleton
+  1331→  1331→- Task list skeleton
+  1332→  1332→- Kanban skeleton
+  1333→  1333→- Table skeleton
+  1334→  1334→- Analytics skeleton
+  1335→  1335→- Billing loading state
+  1336→  1336→
+  1337→  1337→Avoid unnecessary full-page loading indicators.
+  1338→  1338→
+  1339→  1339→## Error states
+  1340→  1340→
+  1341→  1341→Show helpful messages with retry actions when appropriate.
+  1342→  1342→
+  1343→  1343→Never leave a broken blank page.
+  1344→  1344→
+  1345→  1345→## Optimistic updates
+  1346→  1346→
+  1347→  1347→Use optimistic updates for suitable interactions:
+  1348→  1348→- Task status changes
+  1349→  1349→- Kanban reordering
+  1350→  1350→- Favorite-like preferences, if implemented
+  1351→  1351→- Notification read state
+  1352→  1352→- Simple task field edits
+  1353→  1353→
+  1354→  1354→Rollback changes if the server rejects the operation.
+  1355→  1355→
+  1356→  1356→For billing, permissions, role changes, and other sensitive operations, use server-confirmed results.
+  1357→  1357→
+  1358→  1358→---
+  1359→  1359→
+  1360→  1360→# 31. PERFORMANCE AND RELIABILITY
+  1361→  1361→
+  1362→  1362→Implement:
+  1363→  1363→
+  1364→  1364→- Server-side pagination
+  1365→  1365→- Indexed database queries
+  1366→  1366→- Efficient filtering and sorting
+  1367→  1367→- Image optimization
+  1368→  1368→- Lazy loading
+  1369→  1369→- Avoidance of N+1 queries
+  1370→  1370→- Appropriate caching
+  1371→  1371→- Cache invalidation
+  1372→  1372→- Debounced search
+  1373→  1373→- Efficient analytics queries
+  1374→  1374→- Transaction-safe business logic
+  1375→  1375→
+  1376→  1376→Do not load an entire workspace's task history into the browser.
+  1377→  1377→
+  1378→  1378→Do not expose unlimited query endpoints.
+  1379→  1379→
+  1380→  1380→Use sensible defaults and configurable limits.
+  1381→  1381→
+  1382→  1382→---
+  1383→  1383→
+  1384→  1384→# 32. ACCESSIBILITY
+  1385→  1385→
+  1386→  1386→Follow WCAG-aligned accessibility practices.
+  1387→  1387→
+  1388→  1388→Implement:
+  1389→  1389→- Semantic HTML
+  1390→  1390→- Keyboard navigation
+  1391→  1391→- Visible focus states
+  1392→  1392→- Accessible forms
+  1393→  1393→- Proper labels
+  1394→  1394→- Screen-reader support
+  1395→  1395→- Sufficient contrast
+  1396→  1396→- Accessible dialogs
+  1397→  1397→- Accessible charts
+  1398→  1398→- Reduced-motion support
+  1399→  1399→- Keyboard alternatives for drag-and-drop
+  1400→  1400→
+  1401→  1401→The application must remain usable without relying exclusively on color or mouse interaction.
+  1402→  1402→
+  1403→  1403→---
+  1404→  1404→
+  1405→  1405→# 33. DEMO AND SEED DATA
+  1406→  1406→
+  1407→  1407→Seed the database with realistic, internally consistent development data.
+  1408→  1408→
+  1409→  1409→Create:
+  1410→  1410→- 1 platform demonstration administrator, if platform administration is implemented
+  1411→  1411→- 3 workspaces
+  1412→  1412→- 12 users
+  1413→  1413→- Workspace memberships with different roles
+  1414→  1414→- At least 8 projects
+  1415→  1415→- At least 100 tasks
+  1416→  1416→- Labels
+  1417→  1417→- Comments
+  1418→  1418→- Milestones
+  1419→  1419→- Task dependencies
+  1420→  1420→- Notifications
+  1421→  1421→- Activity history
+  1422→  1422→- Example subscription states
+  1423→  1423→
+  1424→  1424→Include realistic workspaces such as:
+  1425→  1425→
+  1426→  1426→1. NEXORA Product Team
+  1427→  1427→2. Digital Agency
+  1428→  1428→3. Startup Operations
+  1429→  1429→
+  1430→  1430→Example projects:
+  1431→  1431→- Website Redesign
+  1432→  1432→- Mobile App Development
+  1433→  1433→- Marketing Launch
+  1434→  1434→- API Infrastructure
+  1435→  1435→- Customer Portal
+  1436→  1436→- Product Roadmap
+  1437→  1437→- Analytics Dashboard
+  1438→  1438→- Documentation Refresh
+  1439→  1439→
+  1440→  1440→Use realistic task titles, deadlines, priorities, statuses, assignments, and descriptions.
+  1441→  1441→
+  1442→  1442→Use a mixture of:
+  1443→  1443→- Completed tasks
+  1444→  1444→- In-progress tasks
+  1445→  1445→- Upcoming tasks
+  1446→  1446→- Overdue tasks
+  1447→  1447→- Unassigned tasks
+  1448→  1448→
+  1449→  1449→Ensure relationships are valid.
+  1450→  1450→
+  1451→  1451→Analytics must reflect the seeded records.
+  1452→  1452→
+  1453→  1453→Do not create impossible states merely to populate the interface.
+  1454→  1454→
+  1455→  1455→## Demo accounts
+  1456→  1456→
+  1457→  1457→Create documented development accounts for:
+  1458→  1458→- Workspace owner
+  1459→  1459→- Workspace administrator
+  1460→  1460→- Project manager
+  1461→  1461→- Member
+  1462→  1462→- Viewer
+  1463→  1463→
+  1464→  1464→Use development-only credentials or a supported demo login mechanism.
+  1465→  1465→
+  1466→  1466→If password-based demo accounts are seeded, ensure passwords are hashed using the application's real authentication implementation.
+  1467→  1467→
+  1468→  1468→Never reuse demo passwords in production.
+  1469→  1469→
+  1470→  1470→Never ship an openly accessible administrator backdoor.
+  1471→  1471→
+  1472→  1472→If a public demo environment is provided, isolate it from real customer data and disable destructive or billing operations as appropriate.
+  1473→  1473→
+  1474→  1474→---
+  1475→  1475→
+  1476→  1476→# 34. WORKSPACE SETTINGS
+  1477→  1477→
+  1478→  1478→Create functional settings pages.
+  1479→  1479→
+  1480→  1480→Workspace settings:
+  1481→  1481→- Name
+  1482→  1482→- Logo
+  1483→  1483→- Description
+  1484→  1484→- Slug
+  1485→  1485→- Timezone
+  1486→  1486→- Default project settings
+  1487→  1487→- Member management
+  1488→  1488→- Notification defaults
+  1489→  1489→- Workspace archive
+  1490→  1490→- Ownership transfer, if supported
+  1491→  1491→
+  1492→  1492→Personal settings:
+  1493→  1493→- Name
+  1494→  1494→- Avatar
+  1495→  1495→- Email
+  1496→  1496→- Password or authentication methods
+  1497→  1497→- Locale
+  1498→  1498→- Timezone
+  1499→  1499→- Theme
+  1500→  1500→- Notification preferences
+  1501→  1501→
+  1502→  1502→Billing settings:
+  1503→  1503→- Current plan
+  1504→  1504→- Usage
+  1505→  1505→- Payment provider portal
+  1506→  1506→- Invoice history
+  1507→  1507→- Subscription management
+  1508→  1508→
+  1509→  1509→Enforce appropriate roles for every setting.
+  1510→  1510→
+  1511→  1511→---
+  1512→  1512→
+  1513→  1513→# 35. AUDIT AND ACTIVITY LOGS
+  1514→  1514→
+  1515→  1515→Create activity logs for meaningful events.
+  1516→  1516→
+  1517→  1517→Examples:
+  1518→  1518→- Project created
+  1519→  1519→- Project archived
+  1520→  1520→- Task created
+  1521→  1521→- Task assigned
+  1522→  1522→- Task status changed
+  1523→  1523→- Due date changed
+  1524→  1524→- Member invited
+  1525→  1525→- Member role changed
+  1526→  1526→- Subscription updated
+  1527→  1527→
+  1528→  1528→Record:
+  1529→  1529→- Actor
+  1530→  1530→- Workspace
+  1531→  1531→- Resource type
+  1532→  1532→- Resource ID
+  1533→  1533→- Action
+  1534→  1534→- Timestamp
+  1535→  1535→- Safe change metadata where appropriate
+  1536→  1536→
+  1537→  1537→Avoid storing unnecessary sensitive information.
+  1538→  1538→
+  1539→  1539→Do not allow ordinary users to modify audit history.
+  1540→  1540→
+  1541→  1541→Use pagination for activity feeds.
+  1542→  1542→
+  1543→  1543→---
+  1544→  1544→
+  1545→  1545→# 36. TESTING REQUIREMENTS
+  1546→  1546→
+  1547→  1547→Create automated tests for the most important application behavior.
+  1548→  1548→
+  1549→  1549→## Unit tests
+  1550→  1550→
+  1551→  1551→Test:
+  1552→  1552→- Permission evaluation
+  1553→  1553→- Subscription entitlements
+  1554→  1554→- Project progress calculations
+  1555→  1555→- Task status transitions
+  1556→  1556→- Date and deadline calculations
+  1557→  1557→- Analytics calculations
+  1558→  1558→- Billing event handling
+  1559→  1559→
+  1560→  1560→## Integration tests
+  1561→  1561→
+  1562→  1562→Test:
+  1563→  1563→- Registration and login
+  1564→  1564→- Workspace creation
+  1565→  1565→- Workspace invitations
+  1566→  1566→- Project CRUD
+  1567→  1567→- Task CRUD
+  1568→  1568→- Task assignment
+  1569→  1569→- Comments
+  1570→  1570→- Notifications
+  1571→  1571→- Subscription state updates
+  1572→  1572→- Authorization checks
+  1573→  1573→
+  1574→  1574→## Multi-tenant security tests
+  1575→  1575→
+  1576→  1576→Explicitly verify:
+  1577→  1577→- User A cannot read Workspace B projects.
+  1578→  1578→- User A cannot modify Workspace B tasks.
+  1579→  1579→- User A cannot download unauthorized attachments.
+  1580→  1580→- A member cannot promote themselves to OWNER.
+  1581→  1581→- A viewer cannot edit tasks.
+  1582→  1582→- A workspace member cannot access another workspace's billing data.
+  1583→  1583→- Search does not expose inaccessible records.
+  1584→  1584→- Workspace switching does not retain stale data from the previous workspace.
+  1585→  1585→
+  1586→  1586→## End-to-end tests
+  1587→  1587→
+  1588→  1588→Use Playwright or an equivalent supported tool.
+  1589→  1589→
+  1590→  1590→Test the following workflow:
+  1591→  1591→
+  1592→  1592→1. Register or sign in.
+  1593→  1593→2. Create a workspace.
+  1594→  1594→3. Create a project.
+  1595→  1595→4. Invite a teammate.
+  1596→  1596→5. Create a task.
+  1597→  1597→6. Assign the task.
+  1598→  1598→7. Move the task across Kanban columns.
+  1599→  1599→8. Add a comment.
+  1600→  1600→9. Complete the task.
+  1601→  1601→10. Confirm dashboard metrics update.
+  1602→  1602→11. Switch workspace.
+  1603→  1603→12. Confirm workspace data isolation.
+  1604→  1604→13. Open billing settings.
+  1605→  1605→14. Verify the current plan and available upgrade actions.
+  1606→  1606→
+  1607→  1607→Test billing with provider test mode and webhook fixtures. Never run real charges as part of automated tests.
+  1608→  1608→
+  1609→  1609→All critical tests must pass before declaring the implementation complete.
+  1610→  1610→
+  1611→  1611→---
+  1612→  1612→
+  1613→  1613→# 37. DEPLOYMENT AND ENVIRONMENT
+  1614→  1614→
+  1615→  1615→Create:
+  1616→  1616→- .env.example
+  1617→  1617→- Database migration instructions
+  1618→  1618→- Seed instructions
+  1619→  1619→- Development instructions
+  1620→  1620→- Build instructions
+  1621→  1621→- Test instructions
+  1622→  1622→- Production deployment instructions
+  1623→  1623→
+  1624→  1624→Document all required environment variables, including relevant equivalents of:
+  1625→  1625→
+  1626→  1626→DATABASE_URL
+  1627→  1627→AUTH_SECRET
+  1628→  1628→APP_URL
+  1629→  1629→FILE_STORAGE credentials
+  1630→  1630→BILLING_SECRET_KEY
+  1631→  1631→BILLING_WEBHOOK_SECRET
+  1632→  1632→EMAIL provider credentials, if used
+  1633→  1633→
+  1634→  1634→Use placeholders only.
+  1635→  1635→
+  1636→  1636→Never commit actual secrets.
+  1637→  1637→
+  1638→  1638→Implement a clear development, test, and production configuration strategy.
+  1639→  1639→
+  1640→  1640→Do not run destructive seed scripts against production databases.
+  1641→  1641→
+  1642→  1642→Add basic health checks and appropriate error monitoring hooks where supported.
+  1643→  1643→
+  1644→  1644→---
+  1645→  1645→
+  1646→  1646→# 38. README AND DEVELOPER EXPERIENCE
+  1647→  1647→
+  1648→  1648→Create a professional README containing:
+  1649→  1649→
+  1650→  1650→1. Project overview
+  1651→  1651→2. Main features
+  1652→  1652→3. Technology stack
+  1653→  1653→4. Architecture overview
+  1654→  1654→5. Database model overview
+  1655→  1655→6. Local setup
+  1656→  1656→7. Environment variables
+  1657→  1657→8. Database migrations
+  1658→  1658→9. Seed data
+  1659→  1659→10. Demo accounts
+  1660→  1660→11. Running the application
+  1661→  1661→12. Running tests
+  1662→  1662→13. Billing test mode
+  1663→  1663→14. Deployment
+  1664→  1664→15. Security considerations
+  1665→  1665→16. Known limitations
+  1666→  1666→17. Future roadmap
+  1667→  1667→
+  1668→  1668→The project must be understandable to another developer without requiring access to this conversation.
+  1669→  1669→
+  1670→  1670→---
+  1671→  1671→
+  1672→  1672→# 39. DEFINITION OF DONE
+  1673→  1673→
+  1674→  1674→The application is not complete until the following conditions are met.
+  1675→  1675→
+  1676→  1676→## Frontend
+  1677→  1677→
+  1678→  1678→- Public landing page works.
+  1679→  1679→- Authentication pages work.
+  1680→  1680→- Dashboard uses real data.
+  1681→  1681→- Projects and tasks have complete CRUD flows.
+  1682→  1682→- Kanban drag-and-drop persists.
+  1683→  1683→- Workspace switcher works.
+  1684→  1684→- Team management works.
+  1685→  1685→- Calendar and analytics work.
+  1686→  1686→- Billing pages reflect actual application state.
+  1687→  1687→- Light and dark modes work.
+  1688→  1688→- Mobile layouts work.
+  1689→  1689→- Loading, empty, and error states are present.
+  1690→  1690→
+  1691→  1691→## Backend
+  1692→  1692→
+  1693→  1693→- Database migrations succeed.
+  1694→  1694→- Authentication is secure.
+  1695→  1695→- Workspace authorization is enforced.
+  1696→  1696→- Project/task operations persist.
+  1697→  1697→- Invitations and membership permissions work.
+  1698→  1698→- Comments and notifications persist.
+  1699→  1699→- Analytics use actual data.
+  1700→  1700→- Subscription entitlements are enforced server-side.
+  1701→  1701→- Billing webhooks are verified and idempotent.
+  1702→  1702→- Errors are handled consistently.
+  1703→  1703→
+  1704→  1704→## Quality
+  1705→  1705→
+  1706→  1706→- Seed data is valid.
+  1707→  1707→- No critical workflow depends on fake data.
+  1708→  1708→- No important button is nonfunctional.
+  1709→  1709→- No secret is exposed to the client.
+  1710→  1710→- No known cross-tenant authorization issue remains.
+  1711→  1711→- Critical tests pass.
+  1712→  1712→- README and deployment instructions are provided.
+  1713→  1713→
+  1714→  1714→---
+  1715→  1715→
+  1716→  1716→# 40. FINAL EXECUTION INSTRUCTIONS
+  1717→  1717→
+  1718→  1718→Build NEXORA now.
+  1719→  1719→
+  1720→  1720→Do not return only an implementation plan.
+  1721→  1721→
+  1722→  1722→Do not stop after generating the landing page.
+  1723→  1723→
+  1724→  1724→Do not create a frontend-only prototype.
+  1725→  1725→
+  1726→  1726→Do not use fake APIs or pretend payments succeeded.
+  1727→  1727→
+  1728→  1728→Do not claim that tests, integrations, database migrations, or deployments succeeded unless they were actually executed and verified.
+  1729→  1729→
+  1730→  1730→Start by inspecting the platform's supported capabilities and selecting a consistent architecture.
+  1731→  1731→
+  1732→  1732→Then implement the application incrementally, verifying each major feature before proceeding.
+  1733→  1733→
+  1734→  1734→If a platform limitation prevents a feature from being fully implemented:
+  1735→  1735→1. Complete the working alternative.
+  1736→  1736→2. Preserve the correct architectural boundaries.
+  1737→  1737→3. Document the limitation.
+  1738→  1738→4. Explain exactly what configuration or integration is still required.
+  1739→  1739→
+  1740→  1740→Prioritize a functional, secure core product over superficial feature quantity.
+  1741→  1741→
+  1742→  1742→**The final deliverable must be a real, responsive, multi-tenant SaaS application with persistent storage, secure authentication, enforced permissions, projects, tasks, team collaboration, analytics, subscription and billing workflows, seed data, automated tests, and setup documentation.**
+  1743→  1743→
+  1744→  1744→Build NEXORA as a professional product that a software engineer can confidently demonstrate in a portfolio and continue developing toward commercial release.
