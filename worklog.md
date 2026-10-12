@@ -234,3 +234,19 @@ Work Log:
 
 Stage Summary:
 - NEXORA build complete and verified. Deliverable: real, responsive, multi-tenant SaaS with persistent storage, secure auth, enforced permissions, projects/tasks/kanban, collaboration, analytics, test-mode billing, seed data, and docs.
+
+---
+Task ID: fix-preview-iframe
+Agent: Z.ai Code (main)
+Task: Fix "preview-chat-88892801-...space-z.ai n'autorise pas la connexion" — preview panel refused to connect.
+
+Work Log:
+- Diagnosed: Next.js server was running fine locally (HTTP 200), but next.config.ts set `X-Frame-Options: DENY` on all routes, which blocks the preview panel from embedding the app in its iframe → browser shows "refused to connect".
+- Removed the `X-Frame-Options: DENY` header from securityHeaders in next.config.ts (kept nosniff, Referrer-Policy, etc.).
+- Restarted dev server; first two restart attempts died because background processes were reaped (setsid without --fork did not detach when job control made it a process-group leader). Fixed by using `setsid --fork` to fully detach the dev server.
+- Verified via Agent Browser: landing page renders (NEXORA), no console errors; demo owner login (owner@nexora.dev) works end-to-end → dashboard with real API data (4 projects, 28 open tasks, charts); Projects page lists 4 projects with progress bars.
+
+Stage Summary:
+- Root cause: `X-Frame-Options: DENY` in next.config.ts blocked the preview iframe.
+- Fix: header removed in /home/z/my-project/next.config.ts; dev server restarted detached with `setsid --fork`.
+- App verified working: auth → dashboard → projects, all APIs returning 200, no console errors.
