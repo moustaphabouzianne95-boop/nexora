@@ -271,3 +271,18 @@ Stage Summary:
 - Repo is Vercel-ready: user only needs to (1) create Turso DB, (2) run deploy/turso-init.sql on it, (3) import repo on Vercel with TURSO_DATABASE_URL / TURSO_AUTH_TOKEN / DATABASE_URL env vars.
 - Local dev workflow unchanged (file SQLite).
 - Guide committed at DEPLOY.md.
+
+---
+Task ID: turso-db-init
+Agent: Z.ai Code (main)
+Task: Initialize the user's Turso database (nexora-moustaphabouzianne95-boop.aws-ca-central-1.turso.io) with schema + demo data.
+
+Work Log:
+- Tested connection: 401 without token, connected with user-provided auth token (kept out of repo/worklog).
+- Executed deploy/turso-init.sql via @libsql/client executeMultiple (110.9 KB).
+- Verified: 21 tables, 37 indexes, 12 users, 3 workspaces, 8 projects, 105 tasks, 52 comments.
+- Demo accounts present (owner/admin/pm/member/viewer @nexora.dev).
+
+Stage Summary:
+- Turso DB is fully initialized and ready for Vercel deployment.
+- Remaining user steps: import repo on Vercel with TURSO_DATABASE_URL, TURSO_AUTH_TOKEN, DATABASE_URL=file:./db/custom.db.
