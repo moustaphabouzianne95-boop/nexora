@@ -11,7 +11,11 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+  // "standalone" is for the sandbox/Docker runtime only — Vercel handles
+  // its own output and must not receive a standalone build.
+  ...(process.env.VERCEL ? {} : { output: "standalone" as const }),
+  // Native / engine-backed packages must stay outside the bundler.
+  serverExternalPackages: ["@libsql/client", "@prisma/adapter-libsql", "@prisma/client"],
   typescript: {
     ignoreBuildErrors: true,
   },
