@@ -250,3 +250,24 @@ Stage Summary:
 - Root cause: `X-Frame-Options: DENY` in next.config.ts blocked the preview iframe.
 - Fix: header removed in /home/z/my-project/next.config.ts; dev server restarted detached with `setsid --fork`.
 - App verified working: auth → dashboard → projects, all APIs returning 200, no console errors.
+
+---
+Task ID: vercel-deploy-prep
+Agent: Z.ai Code (main)
+Task: "prépare le déploiement sur Vercel" — make the NEXORA project deployable on Vercel.
+
+Work Log:
+- Analyzed blockers: SQLite file DB can't persist on Vercel serverless; attachments already stored as DB blobs (serverless-safe); session auth standard.
+- Installed @libsql/client + @prisma/adapter-libsql; aligned Prisma CLI/client/adapter to 6.19.2/6.19.3 (was mismatched 6.19.2 CLI vs 6.11.1 client causing wasm generate error).
+- Refactored src/lib/db.ts to dual mode: local file SQLite (unchanged) ↔ Turso libSQL driver adapter when TURSO_DATABASE_URL is set. driverAdapters is GA in Prisma 6 — no preview flag needed.
+- next.config.ts: serverExternalPackages (libsql/prisma), output standalone only when not on Vercel.
+- Added vercel.json (framework nextjs, buildCommand "prisma generate && next build", installCommand "bun install") and package.json postinstall prisma generate.
+- Created scripts/export-turso-sql.ts (bun:sqlite dump) → deploy/turso-init.sql (21 tables, schema + full demo data, 110.9 KB).
+- Wrote DEPLOY.md: 4-step French guide (Turso account, SQL init, Vercel import + 3 env vars, verification) + troubleshooting.
+- Verified locally: lint clean, prisma generate + db:push OK, dev server restarted, browser-verified login → dashboard renders with data (login also exercises a DB write via Session insert).
+- Committed 3277251 and pushed to GitHub.
+
+Stage Summary:
+- Repo is Vercel-ready: user only needs to (1) create Turso DB, (2) run deploy/turso-init.sql on it, (3) import repo on Vercel with TURSO_DATABASE_URL / TURSO_AUTH_TOKEN / DATABASE_URL env vars.
+- Local dev workflow unchanged (file SQLite).
+- Guide committed at DEPLOY.md.
