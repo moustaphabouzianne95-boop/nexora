@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client'
 import { PrismaLibSQL } from '@prisma/adapter-libsql'
-import { createClient } from '@libsql/client'
 
 /**
  * NEXORA — Prisma client factory with dual-database support.
@@ -31,11 +30,12 @@ function createPrismaClient(): PrismaClient {
 
   if (tursoUrl) {
     // Serverless / hosted mode — Turso over the libSQL driver adapter.
-    const libsql = createClient({
+    // In adapter-libsql v6, PrismaLibSQL is a factory that takes the libSQL
+    // client config directly and creates the internal client itself.
+    const adapter = new PrismaLibSQL({
       url: tursoUrl,
       authToken: process.env.TURSO_AUTH_TOKEN,
     })
-    const adapter = new PrismaLibSQL(libsql)
     return new PrismaClient({ adapter, log: logConfig })
   }
 
