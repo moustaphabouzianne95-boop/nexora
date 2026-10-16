@@ -56,3 +56,4 @@ server.log
 .zscripts/dev.pid
 .zscripts/dev.log
 .zscripts/mini-service-*.log
+.vercel
