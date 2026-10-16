@@ -77,7 +77,7 @@ turso db shell nexora "SELECT COUNT(*) FROM Task;"   # → ~60
 ## Étape 4 — Vérifier
 
 - Ouvrez l'URL `https://<votre-projet>.vercel.app`
-- Connectez-vous avec le compte démo : **owner@nexora.dev** / `password123`
+- Connectez-vous avec le compte démo : **owner@nexora.dev** / `Demo1234!`
 - Dashboard, projets, tâches, commentaires → tout est opérationnel ✅
 
 > ℹ️ Le premier chargement de page peut être un peu plus lent (cold start serverless) — c'est normal sur le plan gratuit.

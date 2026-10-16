@@ -84,7 +84,7 @@ The sign-in page includes one-click **"Fill demo form"** buttons:
 | Member | `member@nexora.dev` |
 | Viewer | `viewer@nexora.dev` |
 
-Demo password: `password123`
+Demo password: `Demo1234!`
 
 ## 📂 Project Structure
 
